@@ -1,0 +1,27 @@
+.why-section {
+  background: #ffffff;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--white);
+}
+
+.why-item {
+  padding: 34px 30px;
+  text-align: center;
+  border-right: 1px solid var(--border);
+}
+
+.why-item:last-child {
+  border-right: 0;
+}
+
+.why-icon {
+  margin: 0 auto 18px;
+  border-radius: 999px;
+}

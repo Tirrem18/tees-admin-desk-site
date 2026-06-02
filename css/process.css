@@ -1,0 +1,44 @@
+.process-section {
+  background: linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
+}
+
+.process-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.process-step {
+  position: relative;
+  padding: 34px 30px;
+  text-align: center;
+}
+
+.step-number {
+  position: absolute;
+  top: 12px;
+  left: 30px;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: var(--teal);
+  color: var(--white);
+  font-weight: 900;
+}
+
+.step-icon {
+  width: 94px;
+  height: 94px;
+  margin: 0 auto 22px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: #eef3f6;
+  color: var(--navy-dark);
+  font-size: 1.75rem;
+  font-weight: 900;
+  border: 1px solid var(--border);
+}

@@ -1,0 +1,93 @@
+.final-cta {
+  background: var(--bg);
+  padding-top: 42px;
+}
+
+.cta-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(circle at 82% 22%, rgba(16, 175, 171, 0.20), transparent 24rem),
+    linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
+  color: var(--white);
+  padding: 52px;
+  min-height: 320px;
+  display: grid;
+  grid-template-columns: 1fr 0.7fr;
+  gap: 36px;
+  align-items: center;
+  box-shadow: var(--shadow);
+}
+
+.cta-content {
+  max-width: 690px;
+}
+
+.cta-card h2 {
+  font-size: clamp(2rem, 4vw, 3.3rem);
+  line-height: 1.08;
+  letter-spacing: -0.055em;
+}
+
+.cta-card p {
+  margin-top: 16px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 1.05rem;
+}
+
+.cta-card .btn {
+  margin-top: 28px;
+}
+
+.cta-note {
+  font-size: 0.92rem !important;
+}
+
+.cta-illustration {
+  position: relative;
+  height: 230px;
+  opacity: 0.62;
+}
+
+.folder-shape {
+  position: absolute;
+  right: 110px;
+  bottom: 22px;
+  width: 175px;
+  height: 120px;
+  border: 2px solid rgba(255, 255, 255, 0.22);
+  border-radius: 18px;
+}
+
+.folder-shape::before {
+  content: "";
+  position: absolute;
+  left: 18px;
+  top: -24px;
+  width: 90px;
+  height: 38px;
+  border: 2px solid rgba(255, 255, 255, 0.22);
+  border-bottom: 0;
+  border-radius: 14px 14px 0 0;
+}
+
+.checklist-shape {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 120px;
+  height: 160px;
+  border: 2px solid rgba(255, 255, 255, 0.22);
+  border-radius: 18px;
+  display: grid;
+  align-content: center;
+  gap: 18px;
+  padding: 24px;
+}
+
+.checklist-shape span {
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.22);
+}
