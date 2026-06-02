@@ -6,7 +6,7 @@ export function Header() {
           <img src="assets/Logo.png" alt="Tees Admin Desk logo" class="brand-logo" />
           <div class="brand-copy">
             <span class="brand-name">Tees Admin Desk</span>
-            <span class="brand-tagline">Paperwork &bull; Deadlines &bull; Systems</span>
+            <span class="brand-tagline">Organised &bull; Tracked &bull; Ready</span>
           </div>
         </a>
 

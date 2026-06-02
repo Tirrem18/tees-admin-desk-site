@@ -6,12 +6,13 @@ export function HeroSection() {
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <h1>Paperwork, deadlines and follow-ups kept under control.</h1>
+          <h1>Important paperwork, deadlines and renewals kept under control.</h1>
 
           <p class="hero-text">
-            Tees Admin Desk helps small Teesside and North East businesses organise
-            documents, track renewals, chase missing information, clean up spreadsheets
-            and keep simple admin systems moving.
+            Tees Admin Desk helps contractors, trades and small North East businesses
+            keep important documents organised, renewal dates tracked, missing
+            information chased and simple admin records up to date. Your paperwork
+            is easier to find, check and act on when it matters.
           </p>
 
           <div class="trust-line">
