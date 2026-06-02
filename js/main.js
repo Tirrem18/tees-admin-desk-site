@@ -1,5 +1,6 @@
 import { Header } from "./components/Header.js";
 import { Footer } from "./components/Footer.js";
+import { initDashboardCard } from "./components/DashboardCard.js";
 import { HeroSection } from "./sections/HeroSection.js";
 import { ProblemSection } from "./sections/ProblemSection.js";
 import { ServicesSection } from "./sections/ServicesSection.js";
@@ -23,3 +24,5 @@ app.innerHTML = [
   FinalCtaSection(),
 ].join("");
 footerMount.outerHTML = Footer();
+
+initDashboardCard();
