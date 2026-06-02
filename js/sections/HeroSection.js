@@ -6,11 +6,6 @@ export function HeroSection() {
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <div class="eyebrow">
-            <span class="eyebrow-dot"></span>
-            Teesside &amp; North East admin support
-          </div>
-
           <h1>Paperwork, deadlines and follow-ups kept under control.</h1>
 
           <p class="hero-text">

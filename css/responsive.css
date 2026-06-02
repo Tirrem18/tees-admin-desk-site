@@ -16,9 +16,19 @@
     margin-left: auto;
   }
 
+  .hero {
+    min-height: auto;
+    display: block;
+    padding: 54px 0;
+  }
+
   .hero-grid {
     grid-template-columns: 1fr;
     gap: 44px;
+  }
+
+  .hero .dashboard-card {
+    transform: none;
   }
 
   .hero-copy {
@@ -30,6 +40,10 @@
   .hero-actions {
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
   }
 
   .hero h1,
@@ -60,6 +74,95 @@
 
   .cta-illustration {
     display: none;
+  }
+}
+
+@media (min-width: 1041px) and (max-height: 820px) {
+  .hero {
+    padding: 20px 0;
+  }
+
+  .hero-grid {
+    gap: clamp(36px, 4vw, 56px);
+  }
+
+  .hero h1 {
+    margin-top: 16px;
+    font-size: clamp(2.8rem, 4.8vw, 4.75rem);
+  }
+
+  .hero-text {
+    margin-top: 16px;
+    font-size: 1.04rem;
+  }
+
+  .trust-line {
+    margin-top: 14px;
+  }
+
+  .hero-actions {
+    margin-top: 20px;
+  }
+
+  .dashboard-top {
+    padding: 14px 18px;
+  }
+
+  .metrics-grid {
+    padding: 16px;
+    gap: 10px;
+  }
+
+  .metric-card {
+    min-height: 108px;
+    padding: 12px 8px;
+  }
+
+  .metric-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .metric-card strong {
+    font-size: 1.65rem;
+  }
+
+  .priority-list {
+    margin: 0 16px 16px;
+    padding: 14px;
+  }
+
+  .priority-row {
+    padding: 9px 0;
+  }
+}
+
+@media (min-width: 1041px) and (max-height: 700px) {
+  .hero {
+    padding: 16px 0;
+  }
+
+  .hero h1 {
+    margin-top: 14px;
+    font-size: clamp(2.55rem, 4.2vw, 4.1rem);
+  }
+
+  .eyebrow {
+    padding: 6px 10px;
+    font-size: 0.8rem;
+  }
+
+  .hero-text {
+    margin-top: 14px;
+    font-size: 1rem;
+  }
+
+  .trust-line {
+    margin-top: 12px;
+  }
+
+  .hero-actions {
+    margin-top: 18px;
   }
 }
 
