@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Tees Admin Desk</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="index.html">
+        <img src="assets/Logo.png" alt="" class="brand-logo" />
+        <div class="brand-text">
+          <p class="brand-name">Tees Admin Desk</p>
+          <p class="tagline">Paperwork • Deadlines • Systems</p>
+        </div>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="contractor-paperwork.html">Contractor paperwork</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-content">
+        <div>
+          <p class="overline">Contact</p>
+          <h1>Get in touch with Tees Admin Desk.</h1>
+          <p>Send us a quick message about your admin support needs. We're here to help Teesside and North East small businesses.</p>
+          <div class="hero-actions">
+            <a class="link-button btn-primary" href="mailto:hello@teesadmindesk.co.uk">Send an email</a>
+            <a class="link-button btn-secondary" href="index.html">Back to home</a>
+          </div>
+        </div>
+        <div class="contact-panel">
+          <p class="overline">Get in touch</p>
+          <p><strong>Email</strong></p>
+          <p><a href="mailto:hello@teesadmindesk.co.uk" style="color: var(--teal); font-weight: 600;">hello@teesadmindesk.co.uk</a></p>
+          <p style="margin-top: 1.5rem;"><strong>Location</strong></p>
+          <p>Billingham / Teesside</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact form section -->
+    <section class="section section-alt">
+      <h2>Quick message</h2>
+      <p class="lead">Send us your details and tell us what admin support would help your business move forward.</p>
+      
+      <div class="section-grid">
+        <div class="contact-panel">
+          <form action="mailto:hello@teesadmindesk.co.uk" method="post" enctype="text/plain">
+            <label for="name">Your name</label>
+            <input type="text" id="name" name="Name" placeholder="John Smith" required />
+            
+            <label for="business">Business name</label>
+            <input type="text" id="business" name="Business" placeholder="Your company" />
+            
+            <label for="type">What do you need help with?</label>
+            <input type="text" id="type" name="Help with" placeholder="e.g. Contractor paperwork, quote follow-up..." />
+            
+            <label for="message">Your message</label>
+            <textarea id="message" name="Message" placeholder="Tell us a bit about what you're trying to organise..."></textarea>
+            
+            <button type="submit" class="btn-primary">Send email</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Disclaimer -->
+    <section class="section">
+      <div class="card">
+        <h3>About us</h3>
+        <p>Tees Admin Desk is a local administrative support service for small Teesside and North East businesses. We provide admin, document organisation, and deadline-tracking support only. We are not an accreditation body, legal adviser, health and safety consultant, transport manager, property lawyer, or statutory compliance lead.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Tees Admin Desk • Billingham / Teesside • hello@teesadmindesk.co.uk</p>
+    </div>
+  </footer>
+</body>
+</html>
