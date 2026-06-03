@@ -1,19 +1,33 @@
 @media (max-width: 1040px) {
   .header-inner {
-    flex-wrap: wrap;
-    padding: 16px 0;
+    flex-wrap: nowrap;
+    min-height: 68px;
+    gap: 18px;
+    padding: 8px 0;
+  }
+
+  .brand {
+    gap: 0;
+    min-width: auto;
+  }
+
+  .brand-copy {
+    display: none;
   }
 
   .site-nav {
-    order: 3;
-    width: 100%;
-    margin-left: 0;
-    justify-content: center;
-    flex-wrap: wrap;
+    order: initial;
+    width: auto;
+    margin-left: auto;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 18px;
+    font-size: 0.86rem;
   }
 
   .header-cta {
-    margin-left: auto;
+    flex: 0 0 auto;
+    margin-left: 0;
   }
 
   .hero {
@@ -235,27 +249,38 @@
     width: min(100% - 28px, var(--container));
   }
 
+  .header-inner {
+    min-height: 58px;
+    gap: 10px;
+    padding: 6px 0;
+  }
+
   .brand-logo {
     width: 44px;
     height: 44px;
   }
 
-  .brand-name {
-    font-size: 1.05rem;
-  }
-
-  .brand-tagline {
-    font-size: 0.69rem;
-  }
-
   .site-nav {
+    display: flex;
+    flex: 1 1 auto;
+    min-width: 0;
+    margin-left: 0;
+    gap: 13px;
+    overflow-x: auto;
+    padding: 4px 1px;
+    font-size: 0.74rem;
+    white-space: nowrap;
+    scrollbar-width: none;
+  }
+
+  .site-nav::-webkit-scrollbar {
     display: none;
   }
 
   .header-cta {
-    min-height: 40px;
-    padding: 0 13px;
-    font-size: 0.78rem;
+    min-height: 36px;
+    padding: 0 10px;
+    font-size: 0.7rem;
   }
 
   .hero {
@@ -293,7 +318,40 @@
   }
 
   .metrics-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 6px;
+    padding: 12px;
+  }
+
+  .metric-card {
+    min-height: 86px;
+    padding: 9px 4px;
+    gap: 4px;
+    border-radius: 12px;
+  }
+
+  .metric-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .metric-icon.calendar::before {
+    width: 14px;
+    height: 13px;
+  }
+
+  .metric-icon.calendar::after {
+    top: 9px;
+    width: 7px;
+  }
+
+  .metric-card strong {
+    font-size: 1.35rem;
+  }
+
+  .metric-card span:last-child {
+    font-size: 0.64rem;
+    line-height: 1.15;
   }
 
   .problem-grid,
@@ -341,12 +399,46 @@
 }
 
 @media (max-width: 420px) {
+  .header-inner {
+    gap: 7px;
+  }
+
+  .site-nav {
+    gap: 10px;
+    font-size: 0.68rem;
+  }
+
+  .header-cta {
+    min-height: 34px;
+    padding: 0 8px;
+    font-size: 0.64rem;
+  }
+
   .dashboard-card {
     height: 560px;
   }
 
   .metrics-grid {
-    grid-template-columns: 1fr;
+    gap: 4px;
+    padding: 10px;
+  }
+
+  .metric-card {
+    min-height: 78px;
+    padding: 8px 3px;
+  }
+
+  .metric-icon {
+    width: 26px;
+    height: 26px;
+  }
+
+  .metric-card strong {
+    font-size: 1.12rem;
+  }
+
+  .metric-card span:last-child {
+    font-size: 0.58rem;
   }
 
   .priority-row {
