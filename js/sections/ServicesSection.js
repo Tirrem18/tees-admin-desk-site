@@ -48,75 +48,58 @@ const services = [
       "I discuss your needs, review how your files are currently stored, and identify what needs sorting first. Then I create a clear folder structure so documents are easier to find, maintain and share.",
     before: [
       {
-        name: "Documents/",
+        name: "2025/26 admin bits/",
         children: [
-          { name: "insurance 2024.pdf" },
-          { name: "public liability NEW.pdf" },
-          { name: "old RAMS.docx" },
-          { name: "Training card - Dave.jpg" },
+          { name: "public liability 2024.pdf" },
+          { name: "employers liability.pdf" },
+          { name: "old company info.docx" },
+          { name: "notes for renewal.txt" },
         ],
       },
       {
-        name: "Insurance/",
+        name: "Insurance docs/",
         children: [
-          { name: "PL cert.pdf" },
-          { name: "employers liability maybe.pdf" },
-          {
-            name: "insurance old/",
-            children: [{ name: "insurance 2022.pdf" }, { name: "insurance 2023.pdf" }],
-          },
+          { name: "PL certificate latest.pdf" },
+          { name: "employers liability 2025 maybe.pdf" },
+          { name: "insurance schedule.pdf" },
+          { name: "old insurance/", children: [{ name: "insurance 2022.pdf" }, { name: "insurance 2023.pdf" }] },
         ],
       },
       {
-        name: "RAMS/",
+        name: "IMPORTANT/",
         children: [
-          { name: "rams template.docx" },
-          { name: "site rams final final.pdf" },
-          { name: "stockton job rams.pdf" },
+          { name: "RAMS template.docx" },
+          { name: "Stockton job RAMS final.pdf" },
+          { name: "rams final final v2.pdf" },
+          { name: "health and safety policy old.docx" },
         ],
       },
       {
-        name: "Training/",
+        name: "training certs/",
         children: [
-          { name: "cscs-john.png" },
-          { name: "forklift cert.pdf" },
-          { name: "first aid old.pdf" },
+          { name: "Dave CSCS.jpg" },
+          { name: "John forklift cert.pdf" },
+          { name: "first aid expired.pdf" },
+          { name: "IPAF - need new copy.png" },
         ],
       },
       {
-        name: "Quotes/",
+        name: "Quotes sent/",
         children: [
           { name: "quote 1.docx" },
-          { name: "quote accepted maybe.pdf" },
-          {
-            name: "sent quotes/",
-            children: [{ name: "abc builders quote.pdf" }, { name: "smith job quote.docx" }],
-          },
+          { name: "Wilson job quote sent.pdf" },
+          { name: "accepted quote maybe.pdf" },
+          { name: "old quotes/", children: [{ name: "abc builders quote.pdf" }, { name: "smith job quote.docx" }] },
         ],
       },
       {
-        name: "Jobs/",
-        children: [{ name: "job photos/" }, { name: "site docs/" }, { name: "invoice info.txt" }],
-      },
-      {
-        name: "Old certificates/",
+        name: "Job docs current/",
         children: [
-          { name: "gas safe old.pdf" },
-          { name: "expired insurance.pdf" },
-          { name: "training expired.jpg" },
+          { name: "site photos/" },
+          { name: "method statement.docx" },
+          { name: "invoice details.txt" },
+          { name: "customer email.pdf" },
         ],
-      },
-      {
-        name: "Tender stuff/",
-        children: [
-          { name: "evidence.pdf" },
-          { name: "company info.docx" },
-          { name: "need to update this.docx" },
-        ],
-      },
-      {
-        name: "Admin/",
-        children: [{ name: "bank letter.pdf" }, { name: "company number.txt" }, { name: "policy.pdf" }],
       },
       {
         name: "New folder/",
@@ -127,40 +110,60 @@ const services = [
         children: [{ name: "document.pdf" }, { name: "cert maybe.pdf" }],
       },
       {
-        name: "stuff/",
-        children: [{ name: "important.pdf" }, { name: "dont delete.docx" }, { name: "random notes.txt" }],
-      },
-      {
-        name: "downloads/",
+        name: "Downloads/",
         children: [{ name: "download.pdf" }, { name: "download (1).pdf" }, { name: "download (2).pdf" }],
       },
       {
-        name: "desktop files/",
+        name: "desktop stuff/",
         children: [{ name: "rams.pdf" }, { name: "insurance.pdf" }, { name: "screenshot.png" }],
       },
       {
-        name: "invoices/",
-        children: [{ name: "invoice march.pdf" }, { name: "unpaid maybe.xlsx" }],
+        name: "OLD CERTS/",
+        children: [
+          { name: "expired insurance.pdf" },
+          { name: "gas safe old.pdf" },
+          { name: "training expired.jpg" },
+        ],
+      },
+      {
+        name: "tender bits/",
+        children: [
+          { name: "evidence.pdf" },
+          { name: "company info.docx" },
+          { name: "need to update this.docx" },
+        ],
+      },
+      {
+        name: "Accreditation/",
+        children: [{ name: "safecontractor.pdf" }, { name: "CHAS old.pdf" }, { name: "application notes.docx" }],
+      },
+      {
+        name: "invoices and receipts/",
+        children: [{ name: "invoice march.pdf" }, { name: "unpaid maybe.xlsx" }, { name: "receipt fuel.jpg" }],
+      },
+      {
+        name: "email attachments/",
+        children: [{ name: "attachment.pdf" }, { name: "attachment2.pdf" }, { name: "sent by Tom.pdf" }],
+      },
+      {
+        name: "WhatsApp files/",
+        children: [{ name: "IMG_4812.jpg" }, { name: "IMG_4813.jpg" }, { name: "site video.mp4" }],
+      },
+      {
+        name: "company docs/",
+        children: [{ name: "bank letter.pdf" }, { name: "company number.txt" }, { name: "policy.pdf" }],
       },
       {
         name: "certificates/",
         children: [{ name: "cert.pdf" }, { name: "cert new.pdf" }, { name: "dave cert.pdf" }],
       },
       {
-        name: "accreditations maybe/",
-        children: [{ name: "safecontractor.pdf" }, { name: "chas old.pdf" }],
+        name: "subcontractors/",
+        children: [{ name: "tom insurance.pdf" }, { name: "steve cscs.jpg" }, { name: "need public liability.pdf" }],
       },
       {
-        name: "H&S/",
-        children: [{ name: "policy old.docx" }, { name: "risk assessment.docx" }],
-      },
-      {
-        name: "email attachments/",
-        children: [{ name: "attachment.pdf" }, { name: "attachment2.pdf" }, { name: "sent by tom.pdf" }],
-      },
-      {
-        name: "whatsapp/",
-        children: [{ name: "IMG_4812.jpg" }, { name: "IMG_4813.jpg" }, { name: "video evidence.mp4" }],
+        name: "jobs old/",
+        children: [{ name: "Hartlepool job/" }, { name: "Stockton site/" }, { name: "Middlesbrough quote stuff/" }],
       },
       { name: "Public Liability 2025.pdf" },
       { name: "RAMS final final v2.pdf" },
@@ -170,14 +173,287 @@ const services = [
       { name: "notes.txt" },
     ],
     after: [
-      "00_Admin",
-      "01_Insurance",
-      "02_Accreditations",
-      "03_RAMS",
-      "04_Training_Records",
-      "05_Quotes_&_Tenders",
-      "06_Job_Documents",
-      "Archive",
+      {
+        name: "00_Admin/",
+        type: "folder",
+        children: [
+          {
+            name: "Company_Details/",
+            type: "folder",
+            children: [
+              { name: "Company_Info_Old.docx", type: "file" },
+              { name: "Company_Number.txt", type: "file" },
+              { name: "Bank_Letter.pdf", type: "file" },
+            ],
+          },
+          {
+            name: "Policies/",
+            type: "folder",
+            children: [
+              { name: "Company_Policy.pdf", type: "file" },
+              { name: "Health_and_Safety_Policy_Current.docx", type: "file" },
+            ],
+          },
+          {
+            name: "Renewal_Notes/",
+            type: "folder",
+            children: [{ name: "Renewal_Notes_2025.txt", type: "file" }],
+          },
+        ],
+      },
+      {
+        name: "01_Insurance/",
+        type: "folder",
+        children: [
+          {
+            name: "Current/",
+            type: "folder",
+            children: [
+              { name: "Public_Liability_2025.pdf", type: "file" },
+              { name: "Employers_Liability_2025_To_Confirm.pdf", type: "file" },
+              { name: "Insurance_Schedule_2025.pdf", type: "file" },
+            ],
+          },
+          {
+            name: "Previous/",
+            type: "folder",
+            children: [
+              { name: "Public_Liability_2024.pdf", type: "file" },
+              { name: "Insurance_2023.pdf", type: "file" },
+              { name: "Insurance_2022.pdf", type: "file" },
+            ],
+          },
+          {
+            name: "To_Check/",
+            type: "folder",
+            children: [
+              { name: "Employers_Liability_To_Confirm.pdf", type: "file" },
+              { name: "Insurance_From_Desktop_To_Check.pdf", type: "file" },
+              { name: "Public_Liability_2025_Duplicate_To_Check.pdf", type: "file" },
+            ],
+          },
+        ],
+      },
+      {
+        name: "02_Health_&_Safety_RAMS/",
+        type: "folder",
+        children: [
+          {
+            name: "RAMS_Templates/",
+            type: "folder",
+            children: [{ name: "RAMS_Template.docx", type: "file" }],
+          },
+          {
+            name: "Job_RAMS/",
+            type: "folder",
+            children: [
+              { name: "Stockton_Job_RAMS_Final.pdf", type: "file" },
+              { name: "RAMS_Final_v2_To_Check.pdf", type: "file" },
+              { name: "RAMS_From_Desktop_To_Check.pdf", type: "file" },
+              { name: "RAMS_Final_v2_Duplicate_To_Check.pdf", type: "file" },
+            ],
+          },
+          {
+            name: "Policies/",
+            type: "folder",
+            children: [{ name: "Health_and_Safety_Policy_Old.docx", type: "file" }],
+          },
+          {
+            name: "Method_Statements/",
+            type: "folder",
+            children: [{ name: "Method_Statement.docx", type: "file" }],
+          },
+        ],
+      },
+      {
+        name: "03_Training_Records/",
+        type: "folder",
+        children: [
+          {
+            name: "Current/",
+            type: "folder",
+            children: [
+              { name: "Dave_CSCS_Card.jpg", type: "file" },
+              { name: "John_Forklift_Certificate.pdf", type: "file" },
+              { name: "Dave_Certificate_To_Check.pdf", type: "file" },
+            ],
+          },
+          {
+            name: "Expired_or_To_Update/",
+            type: "folder",
+            children: [
+              { name: "First_Aid_Expired.pdf", type: "file" },
+              { name: "IPAF_Need_New_Copy.png", type: "file" },
+              { name: "Training_Expired.jpg", type: "file" },
+            ],
+          },
+        ],
+      },
+      {
+        name: "04_Accreditations/",
+        type: "folder",
+        children: [
+          {
+            name: "Current/",
+            type: "folder",
+            children: [{ name: "SafeContractor.pdf", type: "file" }],
+          },
+          {
+            name: "Previous_or_To_Update/",
+            type: "folder",
+            children: [
+              { name: "CHAS_Old.pdf", type: "file" },
+              { name: "Accreditation_Application_Notes.docx", type: "file" },
+            ],
+          },
+        ],
+      },
+      {
+        name: "05_Quotes_&_Tenders/",
+        type: "folder",
+        children: [
+          {
+            name: "Quotes_Sent/",
+            type: "folder",
+            children: [
+              { name: "Wilson_Job_Quote_Sent.pdf", type: "file" },
+              { name: "ABC_Builders_Quote.pdf", type: "file" },
+              { name: "Smith_Job_Quote.docx", type: "file" },
+            ],
+          },
+          {
+            name: "Accepted_or_To_Check/",
+            type: "folder",
+            children: [
+              { name: "Accepted_Quote_To_Confirm.pdf", type: "file" },
+              { name: "Quote_1_To_Confirm.docx", type: "file" },
+            ],
+          },
+          {
+            name: "Tender_Evidence/",
+            type: "folder",
+            children: [
+              { name: "Tender_Evidence.pdf", type: "file" },
+              { name: "Company_Info_For_Tenders.docx", type: "file" },
+              { name: "Tender_Info_To_Update.docx", type: "file" },
+            ],
+          },
+        ],
+      },
+      {
+        name: "06_Job_Documents/",
+        type: "folder",
+        children: [
+          {
+            name: "Current_Jobs/",
+            type: "folder",
+            children: [
+              { name: "Customer_Email.pdf", type: "file" },
+              { name: "Invoice_Details.txt", type: "file" },
+            ],
+          },
+          {
+            name: "Job_Photos/",
+            type: "folder",
+            children: [
+              { name: "Site_Photos/", type: "folder" },
+              { name: "IMG_4812.jpg", type: "file" },
+              { name: "IMG_4813.jpg", type: "file" },
+              { name: "Site_Video.mp4", type: "file" },
+            ],
+          },
+          {
+            name: "Previous_Jobs/",
+            type: "folder",
+            children: [
+              { name: "Hartlepool_Job/", type: "folder" },
+              { name: "Stockton_Site/", type: "folder" },
+              { name: "Middlesbrough_Quote_Stuff/", type: "folder" },
+            ],
+          },
+        ],
+      },
+      {
+        name: "07_Subcontractors/",
+        type: "folder",
+        children: [
+          { name: "Tom_Public_Liability.pdf", type: "file" },
+          { name: "Steve_CSCS_Card.jpg", type: "file" },
+          { name: "Subcontractor_Public_Liability_To_Request.pdf", type: "file" },
+        ],
+      },
+      {
+        name: "08_Finance/",
+        type: "folder",
+        children: [
+          {
+            name: "Invoices/",
+            type: "folder",
+            children: [
+              { name: "Invoice_March.pdf", type: "file" },
+              { name: "Unpaid_Items_To_Check.xlsx", type: "file" },
+            ],
+          },
+          {
+            name: "Receipts/",
+            type: "folder",
+            children: [{ name: "Fuel_Receipt.jpg", type: "file" }],
+          },
+        ],
+      },
+      {
+        name: "09_To_Confirm/",
+        type: "folder",
+        children: [
+          { name: "Scan0001.pdf", type: "file" },
+          { name: "Scan0002.pdf", type: "file" },
+          { name: "Image_To_Review.jpg", type: "file" },
+          { name: "Document_To_Identify.pdf", type: "file" },
+          { name: "Certificate_To_Confirm.pdf", type: "file" },
+          { name: "Screenshot_To_Review.png", type: "file" },
+          { name: "Attachment_To_Identify.pdf", type: "file" },
+          { name: "Attachment_2_To_Identify.pdf", type: "file" },
+          { name: "Sent_By_Tom_To_Check.pdf", type: "file" },
+          { name: "Untitled_Spreadsheet_To_Check.xlsx", type: "file" },
+          { name: "Notes_To_Review.txt", type: "file" },
+          { name: "Cert_Image_To_Confirm.jpg", type: "file" },
+        ],
+      },
+      {
+        name: "99_Archive/",
+        type: "folder",
+        children: [
+          {
+            name: "Old_Certificates/",
+            type: "folder",
+            children: [
+              { name: "Expired_Insurance.pdf", type: "file" },
+              { name: "Gas_Safe_Old.pdf", type: "file" },
+            ],
+          },
+          {
+            name: "Old_Downloads/",
+            type: "folder",
+            children: [
+              { name: "Download.pdf", type: "file" },
+              { name: "Download_1.pdf", type: "file" },
+              { name: "Download_2.pdf", type: "file" },
+            ],
+          },
+          {
+            name: "Original_Messy_Folders/",
+            type: "folder",
+            children: [
+              { name: "New_Folder/", type: "folder" },
+              { name: "New_Folder_2/", type: "folder" },
+              { name: "Desktop_Stuff/", type: "folder" },
+              { name: "Email_Attachments/", type: "folder" },
+              { name: "Downloads/", type: "folder" },
+              { name: "OLD_CERTS/", type: "folder" },
+            ],
+          },
+        ],
+      },
     ],
   },
   {
@@ -246,10 +522,11 @@ function getItemKey(side, item, index, parentKey = "") {
   return `${side}-${parentKey}${index}-${item.name}`;
 }
 
-function renderComparisonItem(item, side, index, isExpanded, openFolderKey, depth = 0, parentKey = "") {
+function renderComparisonItem(item, side, index, isExpanded, openFolderKeys, depth = 0, parentKey = "") {
   const hasChildren = Boolean(item.children?.length);
+  const isFolder = item.type === "folder" || hasChildren || item.name.endsWith("/");
   const itemKey = getItemKey(side, item, index, parentKey);
-  const isOpen = isExpanded && openFolderKey === itemKey;
+  const isOpen = isExpanded && openFolderKeys.includes(itemKey);
   const style = depth ? ` style="--depth: ${depth}"` : "";
   const row = hasChildren
     ? `
@@ -264,8 +541,8 @@ function renderComparisonItem(item, side, index, isExpanded, openFolderKey, dept
       </button>
     `
     : `
-      <span class="comparison-row file-row"${style}>
-        <span class="file-cue"></span>${item.name}
+      <span class="comparison-row file-row${isFolder ? " folder-display-row" : ""}"${style}>
+        <span class="file-cue${isFolder ? " folder-cue" : ""}"></span>${item.name}
       </span>
     `;
   const children =
@@ -274,7 +551,7 @@ function renderComparisonItem(item, side, index, isExpanded, openFolderKey, dept
         <ul class="comparison-nested-list">
           ${item.children
             .map((child, childIndex) =>
-              renderComparisonItem(child, side, childIndex, isExpanded, openFolderKey, depth + 1, `${itemKey}-`)
+              renderComparisonItem(child, side, childIndex, isExpanded, openFolderKeys, depth + 1, `${itemKey}-`)
             )
             .join("")}
         </ul>
@@ -284,17 +561,17 @@ function renderComparisonItem(item, side, index, isExpanded, openFolderKey, dept
   return `<li>${row}${children}</li>`;
 }
 
-function renderComparisonList(items, side, isExpanded, openFolderKey) {
-  const visibleItems = isExpanded ? items : items.slice(0, side === "before" ? 6 : 5);
+function renderComparisonList(items, side, isExpanded, openFolderKeys) {
+  const visibleItems = isExpanded ? items : items.slice(0, 6);
   const hiddenCount = items.length - visibleItems.length;
   const itemRows = visibleItems
-    .map((item, index) => renderComparisonItem(item, side, index, isExpanded, openFolderKey))
+    .map((item, index) => renderComparisonItem(item, side, index, isExpanded, openFolderKeys))
     .join("");
 
   return `${itemRows}${!isExpanded && hiddenCount > 0 ? renderMoreRow(hiddenCount, side) : ""}`;
 }
 
-function renderComparisonCard(label, side, items, expandedSide, openFolderKey) {
+function renderComparisonCard(label, side, items, expandedSide, openFolderKeys) {
   const isExpanded = expandedSide === side;
   const buttonLabel = `${isExpanded ? "Minimise" : "Expand"} ${side} example`;
   const icon = isExpanded
@@ -329,12 +606,12 @@ function renderComparisonCard(label, side, items, expandedSide, openFolderKey) {
           ${icon}
         </button>
       </div>
-      <ul data-comparison-list="${side}">${renderComparisonList(items, side, isExpanded, openFolderKey)}</ul>
+      <ul data-comparison-list="${side}">${renderComparisonList(items, side, isExpanded, openFolderKeys)}</ul>
     </div>
   `;
 }
 
-function renderPreviewContent(service, expandedSide = null, openFolderKey = null) {
+function renderPreviewContent(service, expandedSide = null, openFolderKeys = []) {
   const isExpanded = Boolean(expandedSide);
   const comparison =
     service.before && service.after
@@ -343,12 +620,12 @@ function renderPreviewContent(service, expandedSide = null, openFolderKey = null
           ${
             expandedSide === "after"
               ? ""
-              : renderComparisonCard("Before", "before", service.before, expandedSide, openFolderKey)
+              : renderComparisonCard("Before", "before", service.before, expandedSide, openFolderKeys)
           }
           ${
             expandedSide === "before"
               ? ""
-              : renderComparisonCard("After", "after", service.after, expandedSide, openFolderKey)
+              : renderComparisonCard("After", "after", service.after, expandedSide, openFolderKeys)
           }
         </div>
       `
@@ -419,10 +696,10 @@ export function initServicesSection() {
 
   let activeServiceIndex = 0;
   let expandedComparisonSide = null;
-  let openFolderKey = null;
+  let openFolderKeys = [];
 
   function renderPreview(service, scrollState = null) {
-    preview.innerHTML = renderPreviewContent(service, expandedComparisonSide, openFolderKey);
+    preview.innerHTML = renderPreviewContent(service, expandedComparisonSide, openFolderKeys);
 
     if (!scrollState) {
       return;
@@ -439,7 +716,7 @@ export function initServicesSection() {
   function setActiveService(index) {
     activeServiceIndex = index;
     expandedComparisonSide = null;
-    openFolderKey = null;
+    openFolderKeys = [];
 
     const service = services[index] || services[0];
 
@@ -480,8 +757,14 @@ export function initServicesSection() {
           ? { side, scrollTop: list.scrollTop }
           : null;
 
+      const isSameExpandedSide = expandedComparisonSide === side;
+
       expandedComparisonSide = side;
-      openFolderKey = openFolderKey === folderKey ? null : folderKey;
+      openFolderKeys = isSameExpandedSide
+        ? openFolderKeys.includes(folderKey)
+          ? openFolderKeys.filter((key) => key !== folderKey && !key.startsWith(`${folderKey}-`))
+          : [...openFolderKeys, folderKey]
+        : [folderKey];
       renderPreview(service, scrollState);
       return;
     }
@@ -491,7 +774,7 @@ export function initServicesSection() {
       const service = services[activeServiceIndex] || services[0];
 
       expandedComparisonSide = side;
-      openFolderKey = null;
+      openFolderKeys = [];
       renderPreview(service);
       return;
     }
@@ -504,7 +787,7 @@ export function initServicesSection() {
     const service = services[activeServiceIndex] || services[0];
 
     expandedComparisonSide = expandedComparisonSide === side ? null : side;
-    openFolderKey = null;
+    openFolderKeys = [];
     renderPreview(service);
   });
 }
