@@ -249,10 +249,14 @@
     width: min(100% - 28px, var(--container));
   }
 
+  .site-header .container {
+    width: min(100% - 20px, var(--container));
+  }
+
   .header-inner {
     position: relative;
     min-height: 54px;
-    gap: 10px;
+    gap: 6px;
     padding: 5px 0;
     justify-content: space-between;
   }
@@ -520,8 +524,13 @@
 }
 
 @media (max-width: 420px) {
+  .site-header .container {
+    width: min(100% - 14px, var(--container));
+  }
+
   .header-inner {
-    gap: 7px;
+    gap: 4px;
+    padding: 4px 0;
   }
 
   .nav-toggle {

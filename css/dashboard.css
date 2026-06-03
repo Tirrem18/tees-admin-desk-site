@@ -66,12 +66,12 @@
 .dashboard-body {
   flex: 1;
   min-height: 0;
-  overflow-y: hidden;
-  overscroll-behavior: contain;
+  overflow: hidden;
 }
 
-.dashboard-body[data-scrollable="true"] {
+.dashboard-body.is-scrollable {
   overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 .dashboard-body::-webkit-scrollbar {
@@ -119,13 +119,13 @@
 }
 
 .dashboard-body[data-active-report="overview"] .metrics-grid {
-  padding: 14px 18px 10px;
-  gap: 10px;
+  padding: 12px 16px 8px;
+  gap: 8px;
 }
 
 .dashboard-body[data-active-report="overview"] .metric-card {
-  min-height: 104px;
-  padding: 11px 8px;
+  min-height: 96px;
+  padding: 10px 8px;
   gap: 4px;
 }
 
@@ -135,8 +135,8 @@
 }
 
 .dashboard-body[data-active-report="overview"] .priority-list {
-  margin: 0 18px 14px;
-  padding: 12px 16px;
+  margin: 0 16px 12px;
+  padding: 10px 14px;
 }
 
 .dashboard-body[data-active-report="overview"] .priority-heading {
@@ -144,7 +144,7 @@
 }
 
 .dashboard-body[data-active-report="overview"] .priority-row {
-  padding: 8px 0;
+  padding: 7px 0;
 }
 
 .metrics-grid {

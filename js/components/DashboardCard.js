@@ -493,6 +493,27 @@ function renderTabs(activeTab) {
   `;
 }
 
+function updateDashboardScrollState(body) {
+  if (!body) {
+    return;
+  }
+
+  body.classList.remove("is-scrollable");
+  body.dataset.scrollable = "false";
+  body.scrollTop = 0;
+
+  requestAnimationFrame(() => {
+    const isScrollable = body.scrollHeight > body.clientHeight + 1;
+
+    body.classList.toggle("is-scrollable", isScrollable);
+    body.dataset.scrollable = String(isScrollable);
+
+    if (!isScrollable) {
+      body.scrollTop = 0;
+    }
+  });
+}
+
 export function DashboardCard() {
   const activeExample = getActiveExample();
 
@@ -559,14 +580,7 @@ function updateDashboard(demo) {
   body.innerHTML = renderReport(dashboardState.activeTab);
   body.dataset.activeReport = dashboardState.activeTab;
 
-  const report = getActiveReport();
-  const hasExpandedRow = report.rows.some(
-    (row) => row.expandKey && dashboardState.expandedRows.has(row.expandKey)
-  );
-
-  body.dataset.scrollable = String(
-    (dashboardState.activeTab === "expiry" && dashboardState.expiryExpanded) || hasExpandedRow
-  );
+  updateDashboardScrollState(body);
 
   tabButtons.forEach((tabButton) => {
     const isActive = tabButton.dataset.reportTab === dashboardState.activeTab;
@@ -582,6 +596,7 @@ export function initDashboardCard() {
   }
 
   demo.dataset.dashboardReady = "true";
+  updateDashboardScrollState(demo.querySelector("[data-report-body]"));
 
   demo.addEventListener("click", (event) => {
     const exampleButton = event.target.closest("[data-example-direction]");

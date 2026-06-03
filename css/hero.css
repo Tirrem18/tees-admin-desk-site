@@ -1,6 +1,6 @@
 .hero {
   min-height: calc(100vh - 86px);
-  min-height: calc(100svh - 86px);
+  min-height: min(820px, calc(100svh - 86px));
   display: grid;
   align-items: center;
   padding: clamp(22px, 3.2vh, 36px) 0;
