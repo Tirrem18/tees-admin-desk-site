@@ -29,14 +29,15 @@ export function HeroSection() {
           </div>
         </div>
 
-        ${DashboardCard()}
+        <div class="hero-dashboard">
+          ${DashboardCard()}
 
-        <div class="trust-line hero-trust">
-          <span class="trust-icon">&check;</span>
-          <span>
-            <strong>Local, practical admin support</strong> &mdash; without adding another
-            complicated software tool.
-          </span>
+          <div class="trust-line hero-trust">
+            <span class="trust-icon">&check;</span>
+            <span>
+              <strong>Clear monthly overviews. No complicated software to learn. Local admin support when paperwork needs sorting
+            </span>
+          </div>
         </div>
       </div>
     </section>

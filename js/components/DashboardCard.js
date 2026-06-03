@@ -17,15 +17,18 @@ const tabs = [
   },
 ];
 
+const currentMonth = new Intl.DateTimeFormat("en-GB", { month: "long" }).format(new Date());
+
 const examples = [
   {
     id: "contractor-file-check",
     label: "Contractor file check example",
     title: "Tees Example Construction",
+    updatedLabel: "Updated today, 09:15",
     reports: {
       overview: {
         heading: "Monthly overview",
-        meta: "March",
+        meta: currentMonth,
         metrics: [
           {
             icon: "&check;",
@@ -172,7 +175,7 @@ const examples = [
             label: "1 document added to CHAS evidence folder",
             pill: "1 file",
             expandKey: "chas-folder",
-            details: ["CHAS Evidence Pack - March Update.pdf"],
+            details: [`CHAS Evidence Pack - ${currentMonth} Update.pdf`],
           },
         ],
       },
@@ -182,10 +185,11 @@ const examples = [
     id: "large-construction-firm",
     label: "Large construction firm example",
     title: "Tees Example Large Contractor",
+    updatedLabel: "Updated today, 10:23",
     reports: {
       overview: {
         heading: "Monthly overview",
-        meta: "March",
+        meta: currentMonth,
         metrics: [
           {
             icon: "&check;",
@@ -350,7 +354,7 @@ const examples = [
             pill: "7 files",
             expandKey: "large-chas-folder",
             details: [
-              "CHAS Evidence Pack - March Update.pdf",
+              `CHAS Evidence Pack - ${currentMonth} Update.pdf`,
               "Accident Reporting Procedure.pdf",
               "Health and Safety Policy 2026.pdf",
               "+ 4 more files",
@@ -503,7 +507,7 @@ export function DashboardCard() {
       <aside class="dashboard-card" aria-label="Sample admin report">
         <div class="dashboard-top">
           <span data-dashboard-title>${activeExample.title}</span>
-          <span>Updated today, 09:15</span>
+          <span data-dashboard-updated>${activeExample.updatedLabel}</span>
         </div>
 
         ${renderTabs(dashboardState.activeTab)}
@@ -533,6 +537,7 @@ function updateDashboard(demo) {
   const body = demo.querySelector("[data-report-body]");
   const exampleLabel = demo.querySelector("[data-example-label]");
   const dashboardTitle = demo.querySelector("[data-dashboard-title]");
+  const dashboardUpdated = demo.querySelector("[data-dashboard-updated]");
   const tabButtons = demo.querySelectorAll("[data-report-tab]");
 
   if (!body) {
@@ -545,6 +550,10 @@ function updateDashboard(demo) {
 
   if (dashboardTitle) {
     dashboardTitle.textContent = activeExample.title;
+  }
+
+  if (dashboardUpdated) {
+    dashboardUpdated.textContent = activeExample.updatedLabel;
   }
 
   body.innerHTML = renderReport(dashboardState.activeTab);

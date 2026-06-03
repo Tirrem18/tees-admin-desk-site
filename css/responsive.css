@@ -27,6 +27,7 @@
     gap: 44px;
   }
 
+  .hero-dashboard,
   .hero .dashboard-demo {
     transform: none;
   }
@@ -91,8 +92,12 @@
     row-gap: clamp(16px, 2vh, 24px);
   }
 
-  .hero .dashboard-demo {
+  .hero-dashboard {
     transform: translateY(-10px);
+  }
+
+  .hero .dashboard-demo {
+    transform: none;
   }
 
   .hero h1 {
@@ -106,7 +111,7 @@
   }
 
   .hero-trust {
-    padding: 12px 16px;
+    padding: 8px 10px;
   }
 
   .hero-actions {
@@ -176,8 +181,12 @@
     padding: 16px 0;
   }
 
-  .hero .dashboard-demo {
+  .hero-dashboard {
     transform: translateY(-8px);
+  }
+
+  .hero .dashboard-demo {
+    transform: none;
   }
 
   .dashboard-card {
@@ -200,7 +209,7 @@
   }
 
   .hero-trust {
-    padding: 10px 14px;
+    padding: 8px 10px;
   }
 
   .hero-actions {
