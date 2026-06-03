@@ -508,6 +508,42 @@ function renderServiceStep(service, index) {
   `;
 }
 
+function renderServiceArrow(direction, disabled) {
+  const isPrevious = direction < 0;
+
+  return `
+    <button
+      class="mobile-service-arrow"
+      type="button"
+      data-service-direction="${direction}"
+      aria-label="${isPrevious ? "Previous service step" : "Next service step"}"
+      ${disabled ? "disabled aria-disabled=\"true\"" : ""}
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="${isPrevious ? "m15 18-6-6 6-6" : "m9 6 6 6-6 6"}" />
+      </svg>
+    </button>
+  `;
+}
+
+function renderMobileServiceNavigatorContent(index) {
+  const service = services[index] || services[0];
+
+  return `
+    ${renderServiceArrow(-1, index === 0)}
+    <div class="mobile-service-card ${service.iconClass}" data-mobile-service-card aria-live="polite">
+      <span class="service-step-number">${service.number}</span>
+      <span class="service-step-icon ${service.iconClass}">${icons[service.icon]}</span>
+      <span class="service-step-copy">
+        <span class="mobile-service-count">Step ${index + 1} of ${services.length}</span>
+        <span class="service-step-title">${service.title}</span>
+        <span class="service-step-text">${service.text}</span>
+      </span>
+    </div>
+    ${renderServiceArrow(1, index === services.length - 1)}
+  `;
+}
+
 function renderMoreRow(count, side) {
   return `
     <li>
@@ -667,6 +703,10 @@ export function ServicesSection() {
             ${services.map((service, index) => renderServiceStep(service, index)).join("")}
           </div>
 
+          <div class="mobile-service-nav" data-mobile-service-nav aria-label="Service step navigation">
+            ${renderMobileServiceNavigatorContent(0)}
+          </div>
+
           <aside class="service-preview ${activeService.iconClass}" data-service-preview aria-live="polite">
             ${renderPreviewContent(activeService)}
           </aside>
@@ -689,6 +729,7 @@ export function initServicesSection() {
   const section = document.querySelector(".services-section");
   const preview = section?.querySelector("[data-service-preview]");
   const steps = section?.querySelectorAll("[data-service-step]");
+  const mobileNav = section?.querySelector("[data-mobile-service-nav]");
 
   if (!section || !preview || !steps?.length) {
     return;
@@ -713,19 +754,27 @@ export function initServicesSection() {
     }
   }
 
+  function renderMobileNavigator() {
+    if (mobileNav) {
+      mobileNav.innerHTML = renderMobileServiceNavigatorContent(activeServiceIndex);
+    }
+  }
+
   function setActiveService(index) {
-    activeServiceIndex = index;
+    activeServiceIndex = Math.max(0, Math.min(index, services.length - 1));
     expandedComparisonSide = null;
     openFolderKeys = [];
 
-    const service = services[index] || services[0];
+    const service = services[activeServiceIndex] || services[0];
 
     steps.forEach((step) => {
-      const isActive = Number(step.dataset.serviceStep) === index;
+      const isActive = Number(step.dataset.serviceStep) === activeServiceIndex;
 
       step.classList.toggle("is-active", isActive);
       step.setAttribute("aria-pressed", String(isActive));
     });
+
+    renderMobileNavigator();
 
     preview.classList.remove("red", "teal", "amber", "blue", "is-changing");
     preview.classList.add(service.iconClass, "is-changing");
@@ -740,6 +789,16 @@ export function initServicesSection() {
     step.addEventListener("click", () => {
       setActiveService(Number(step.dataset.serviceStep));
     });
+  });
+
+  mobileNav?.addEventListener("click", (event) => {
+    const directionButton = event.target.closest("[data-service-direction]");
+
+    if (!directionButton || directionButton.disabled) {
+      return;
+    }
+
+    setActiveService(activeServiceIndex + Number(directionButton.dataset.serviceDirection));
   });
 
   preview.addEventListener("click", (event) => {

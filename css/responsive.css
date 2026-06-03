@@ -101,6 +101,13 @@
   }
 
   .service-steps {
+    display: none;
+  }
+
+  .mobile-service-nav {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: stretch;
     gap: 10px;
   }
 
@@ -529,6 +536,17 @@
     font-size: 0.8rem;
   }
 
+  .report-tabs {
+    gap: 5px;
+    padding: 12px 12px 0;
+  }
+
+  .report-tab {
+    min-height: 31px;
+    padding: 0 6px;
+    font-size: 0.7rem;
+  }
+
   .status-pill {
     padding: 4px 7px;
     font-size: 0.66rem;
@@ -570,8 +588,8 @@
     gap: 12px;
   }
 
-  .service-steps {
-    gap: 9px;
+  .mobile-service-nav {
+    gap: 8px;
   }
 
   .service-step {
@@ -605,6 +623,19 @@
   .service-step-text {
     font-size: 0.78rem;
     line-height: 1.4;
+  }
+
+  .mobile-service-card {
+    grid-template-columns: auto auto minmax(0, 1fr);
+    gap: 9px;
+    padding: 10px;
+    border-radius: 16px;
+  }
+
+  .mobile-service-arrow {
+    width: 36px;
+    min-height: 56px;
+    border-radius: 14px;
   }
 
   .service-preview {
@@ -766,6 +797,16 @@
   }
 }
 
+@media (max-width: 520px) {
+  .report-tab.has-short-label .report-tab-label-full {
+    display: none;
+  }
+
+  .report-tab.has-short-label .report-tab-label-short {
+    display: inline;
+  }
+}
+
 @media (max-width: 420px) {
   .site-header .container {
     width: min(100% - 14px, var(--container));
@@ -794,6 +835,10 @@
     padding: 9px;
   }
 
+  .mobile-service-nav {
+    gap: 6px;
+  }
+
   .service-step-number {
     width: 28px;
     height: 28px;
@@ -817,6 +862,16 @@
     font-size: 0.72rem;
   }
 
+  .mobile-service-card {
+    gap: 8px;
+    padding: 9px;
+  }
+
+  .mobile-service-arrow {
+    width: 34px;
+    min-height: 54px;
+  }
+
   .service-preview {
     height: 360px;
     min-height: 0;
@@ -829,6 +884,17 @@
 
   .service-preview-label {
     display: none;
+  }
+
+  .report-tabs {
+    gap: 4px;
+    padding: 10px 10px 0;
+  }
+
+  .report-tab {
+    min-height: 30px;
+    padding: 0 5px;
+    font-size: 0.67rem;
   }
 
   .comparison-card.is-expanded {
@@ -927,7 +993,26 @@
     grid-row: span 2;
   }
 
-  .service-step-icon {
+  .service-step .service-step-icon {
     display: none;
+  }
+
+  .mobile-service-card {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .mobile-service-card .service-step-number {
+    grid-row: span 2;
+  }
+
+  .mobile-service-card .service-step-icon {
+    grid-column: 2;
+    width: 40px;
+    height: 40px;
+  }
+
+  .mobile-service-card .service-step-icon svg {
+    width: 30px;
+    height: 30px;
   }
 }

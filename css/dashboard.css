@@ -84,27 +84,34 @@
 }
 
 .report-tabs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 6px;
   padding: 14px 20px 0;
 }
 
 .report-tab {
+  min-width: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   min-height: 34px;
-  padding: 0 12px;
+  padding: 0 8px;
   border: 1px solid var(--border);
   border-radius: 999px;
   background: #fbfdff;
   color: var(--navy);
   font: inherit;
-  font-size: 0.78rem;
+  font-size: 0.74rem;
   font-weight: 850;
+  line-height: 1;
+  white-space: nowrap;
   cursor: pointer;
   transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.report-tab-label-short {
+  display: none;
 }
 
 .report-tab:hover,

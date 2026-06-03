@@ -282,6 +282,10 @@
   gap: 10px;
 }
 
+.mobile-service-nav {
+  display: none;
+}
+
 .service-step {
   width: 100%;
   display: grid;
@@ -403,6 +407,86 @@
   color: var(--muted);
   font-size: 0.82rem;
   line-height: 1.45;
+}
+
+.mobile-service-card {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: auto auto minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid rgba(221, 230, 234, 0.95);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 10px 26px rgba(9, 26, 49, 0.045);
+}
+
+.mobile-service-card.red {
+  border-color: rgba(185, 59, 59, 0.22);
+  box-shadow: 0 14px 30px rgba(185, 59, 59, 0.1);
+}
+
+.mobile-service-card.teal {
+  border-color: rgba(16, 175, 171, 0.26);
+  box-shadow: 0 14px 30px rgba(16, 175, 171, 0.1);
+}
+
+.mobile-service-card.amber {
+  border-color: rgba(183, 102, 19, 0.22);
+  box-shadow: 0 14px 30px rgba(183, 102, 19, 0.1);
+}
+
+.mobile-service-card.blue {
+  border-color: rgba(37, 111, 169, 0.22);
+  box-shadow: 0 14px 30px rgba(37, 111, 169, 0.1);
+}
+
+.mobile-service-count {
+  color: var(--teal-dark);
+  font-size: 0.68rem;
+  font-weight: 850;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.mobile-service-arrow {
+  align-self: stretch;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  min-height: 58px;
+  padding: 0;
+  border: 1px solid rgba(221, 230, 234, 0.95);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.82);
+  color: var(--navy);
+  cursor: pointer;
+  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease,
+    opacity 0.18s ease;
+}
+
+.mobile-service-arrow svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.mobile-service-arrow:hover:not(:disabled),
+.mobile-service-arrow:focus-visible {
+  border-color: rgba(16, 175, 171, 0.32);
+  background: var(--teal-soft);
+  color: var(--teal-dark);
+  outline: none;
+}
+
+.mobile-service-arrow:disabled {
+  cursor: default;
+  opacity: 0.38;
 }
 
 .service-preview {

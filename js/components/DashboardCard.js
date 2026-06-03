@@ -10,10 +10,12 @@ const tabs = [
   {
     id: "missing",
     label: "Missing items",
+    shortLabel: "Missing",
   },
   {
     id: "updates",
     label: "Recent updates",
+    shortLabel: "Recent",
   },
 ];
 
@@ -478,13 +480,14 @@ function renderTabs(activeTab) {
         .map(
           (tab) => `
             <button
-              class="report-tab"
+              class="report-tab${tab.shortLabel ? " has-short-label" : ""}"
               type="button"
               role="tab"
               aria-selected="${tab.id === activeTab}"
               data-report-tab="${tab.id}"
             >
-              ${tab.label}
+              <span class="report-tab-label-full">${tab.label}</span>
+              ${tab.shortLabel ? `<span class="report-tab-label-short">${tab.shortLabel}</span>` : ""}
             </button>
           `
         )
