@@ -3,7 +3,7 @@ import { Footer } from "./components/Footer.js";
 import { initDashboardCard } from "./components/DashboardCard.js";
 import { HeroSection } from "./sections/HeroSection.js";
 import { ProblemSection } from "./sections/ProblemSection.js";
-import { ServicesSection } from "./sections/ServicesSection.js";
+import { ServicesSection, initServicesSection } from "./sections/ServicesSection.js";
 import { WhySection } from "./sections/WhySection.js";
 import { ProcessSection } from "./sections/ProcessSection.js";
 import { WhoWeHelpSection } from "./sections/WhoWeHelpSection.js";
@@ -26,4 +26,5 @@ app.innerHTML = [
 footerMount.outerHTML = Footer();
 
 initHeaderMenu();
+initServicesSection();
 initDashboardCard();

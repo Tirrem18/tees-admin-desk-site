@@ -83,6 +83,61 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .problem-section {
+    padding: 46px 0;
+  }
+
+  .services-section {
+    padding: 8px 0 42px;
+  }
+
+  .services-heading {
+    margin-bottom: 16px;
+  }
+
+  .services-workflow {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .service-steps {
+    gap: 10px;
+  }
+
+  .service-step {
+    padding: 11px;
+  }
+
+  .service-preview {
+    height: 410px;
+    min-height: 0;
+    padding: 18px;
+  }
+
+  .problem-heading {
+    margin-bottom: 22px;
+  }
+
+  .problem-grid {
+    gap: 16px;
+  }
+
+  .problem-card {
+    min-height: 224px;
+    padding: 18px;
+  }
+
+  .problem-icon {
+    width: 66px;
+    height: 66px;
+    margin-bottom: 18px;
+  }
+
+  .problem-icon svg {
+    width: 46px;
+    height: 46px;
+  }
+
   .why-item:nth-child(2) {
     border-right: 0;
   }
@@ -479,11 +534,188 @@
     font-size: 0.66rem;
   }
 
-  .problem-grid,
-  .services-grid,
   .why-grid,
   .process-grid {
     grid-template-columns: 1fr;
+  }
+
+  .services-section {
+    padding: 6px 0 38px;
+  }
+
+  .services-section .container {
+    width: min(100% - 32px, var(--container));
+  }
+
+  .services-heading {
+    margin-bottom: 14px;
+  }
+
+  .services-heading .section-label {
+    margin-bottom: 6px;
+    font-size: 0.7rem;
+  }
+
+  .services-heading h2 {
+    font-size: clamp(1.75rem, 6.4vw, 2rem);
+    line-height: 1.12;
+  }
+
+  .services-heading p:not(.section-label) {
+    margin-top: 8px;
+    font-size: 0.98rem;
+  }
+
+  .services-workflow {
+    gap: 12px;
+  }
+
+  .service-steps {
+    gap: 9px;
+  }
+
+  .service-step {
+    grid-template-columns: auto auto minmax(0, 1fr);
+    gap: 10px;
+    padding: 10px;
+    border-radius: 16px;
+  }
+
+  .service-step-number {
+    width: 30px;
+    height: 30px;
+    font-size: 0.72rem;
+  }
+
+  .service-step-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 14px;
+  }
+
+  .service-step-icon svg {
+    width: 38px;
+    height: 38px;
+  }
+
+  .service-step-title {
+    font-size: 0.95rem;
+  }
+
+  .service-step-text {
+    font-size: 0.78rem;
+    line-height: 1.4;
+  }
+
+  .service-preview {
+    height: 390px;
+    min-height: 0;
+    padding: 14px;
+    border-radius: 20px;
+  }
+
+  .service-preview-label {
+    font-size: 0.72rem;
+  }
+
+  .service-preview h3 {
+    font-size: clamp(1.35rem, 6vw, 1.8rem);
+  }
+
+  .service-preview p {
+    margin-top: 7px;
+    font-size: 0.88rem;
+    line-height: 1.45;
+  }
+
+  .service-comparison {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .comparison-card {
+    padding: 10px;
+  }
+
+  .comparison-card.is-expanded {
+    min-height: 0;
+  }
+
+  .comparison-card ul {
+    gap: 3px;
+    font-size: 0.7rem;
+  }
+
+  .services-reassurance {
+    margin-top: 18px;
+    font-size: 0.96rem;
+  }
+
+  .problem-section {
+    padding: 42px 0;
+  }
+
+  .problem-section .container {
+    width: min(100% - 32px, var(--container));
+  }
+
+  .problem-heading {
+    margin-bottom: 20px;
+  }
+
+  .problem-heading h2 {
+    font-size: clamp(2rem, 8vw, 2.35rem);
+    line-height: 1.12;
+  }
+
+  .problem-heading p {
+    margin-top: 10px;
+    font-size: 1rem;
+    line-height: 1.58;
+  }
+
+  .problem-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .problem-card {
+    min-height: 202px;
+    padding: 14px;
+    border-radius: 18px;
+  }
+
+  .problem-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 14px;
+    border-radius: 15px;
+  }
+
+  .problem-icon svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .problem-card h3 {
+    font-size: 1.06rem;
+  }
+
+  .problem-card p {
+    margin-top: 7px;
+    font-size: 0.84rem;
+    line-height: 1.45;
+  }
+
+  .problem-tag {
+    padding: 7px 10px;
+    font-size: 0.78rem;
+  }
+
+  .problem-bridge {
+    margin-top: 22px;
+    font-size: 1rem;
   }
 
   .why-item,
@@ -504,8 +736,9 @@
     margin-bottom: 28px;
   }
 
-  .service-card {
-    min-height: 250px;
+  .service-preview {
+    height: 380px;
+    min-height: 0;
   }
 
   .process-step {
@@ -536,6 +769,103 @@
   .nav-toggle {
     width: 27px;
     height: 27px;
+  }
+
+  .problem-section .container {
+    width: min(100% - 24px, var(--container));
+  }
+
+  .services-section .container {
+    width: min(100% - 24px, var(--container));
+  }
+
+  .service-step {
+    gap: 8px;
+    padding: 9px;
+  }
+
+  .service-step-number {
+    width: 28px;
+    height: 28px;
+  }
+
+  .service-step-icon {
+    width: 46px;
+    height: 46px;
+  }
+
+  .service-step-icon svg {
+    width: 35px;
+    height: 35px;
+  }
+
+  .service-step-title {
+    font-size: 0.88rem;
+  }
+
+  .service-step-text {
+    font-size: 0.72rem;
+  }
+
+  .service-preview {
+    height: 360px;
+    min-height: 0;
+    padding: 12px;
+  }
+
+  .service-preview-heading {
+    display: block;
+  }
+
+  .service-preview-label {
+    display: none;
+  }
+
+  .comparison-card.is-expanded {
+    min-height: 250px;
+  }
+
+  .services-reassurance {
+    align-items: flex-start;
+    gap: 8px;
+    margin-top: 20px;
+    font-size: 0.9rem;
+  }
+
+  .problem-grid {
+    gap: 10px;
+  }
+
+  .problem-card {
+    min-height: 194px;
+    padding: 11px;
+    border-radius: 16px;
+  }
+
+  .problem-icon {
+    width: 54px;
+    height: 54px;
+    margin-bottom: 12px;
+    border-radius: 14px;
+  }
+
+  .problem-icon svg {
+    width: 34px;
+    height: 34px;
+  }
+
+  .problem-card h3 {
+    font-size: 0.98rem;
+  }
+
+  .problem-card p {
+    font-size: 0.76rem;
+    line-height: 1.42;
+  }
+
+  .problem-tag {
+    padding: 6px 8px;
+    font-size: 0.7rem;
   }
 
   .dashboard-card {
@@ -575,5 +905,19 @@
   .status-pill {
     grid-column: 2;
     width: fit-content;
+  }
+}
+
+@media (max-width: 360px) {
+  .service-step {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .service-step-number {
+    grid-row: span 2;
+  }
+
+  .service-step-icon {
+    display: none;
   }
 }

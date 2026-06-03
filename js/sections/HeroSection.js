@@ -6,7 +6,7 @@ export function HeroSection() {
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <h1>Important paperwork, deadlines and renewals kept under control.</h1>
+          <h1>Important paperwork, deadlines and renewals kept under control</h1>
 
           <p class="hero-text">
             Tees Admin Desk helps contractors, trades and small North East businesses
