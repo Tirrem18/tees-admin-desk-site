@@ -74,3 +74,28 @@
 .site-nav a:hover::after {
   width: 100%;
 }
+
+.menu-cta,
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle {
+  flex: 0 0 auto;
+  place-items: center;
+  gap: 4px;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--white);
+  color: var(--navy-dark);
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  width: 18px;
+  height: 2px;
+  border-radius: 999px;
+  background: currentColor;
+}

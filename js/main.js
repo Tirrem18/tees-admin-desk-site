@@ -1,4 +1,4 @@
-import { Header } from "./components/Header.js";
+import { Header, initHeaderMenu } from "./components/Header.js";
 import { Footer } from "./components/Footer.js";
 import { initDashboardCard } from "./components/DashboardCard.js";
 import { HeroSection } from "./sections/HeroSection.js";
@@ -25,4 +25,5 @@ app.innerHTML = [
 ].join("");
 footerMount.outerHTML = Footer();
 
+initHeaderMenu();
 initDashboardCard();
