@@ -27,7 +27,7 @@
     gap: 44px;
   }
 
-  .hero .dashboard-card {
+  .hero .dashboard-demo {
     transform: none;
   }
 
@@ -40,6 +40,10 @@
   .hero-actions {
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .hero-trust {
+    justify-content: center;
   }
 
   .hero-actions {
@@ -83,25 +87,30 @@
   }
 
   .hero-grid {
-    gap: clamp(36px, 4vw, 56px);
+    column-gap: clamp(36px, 4vw, 56px);
+    row-gap: clamp(16px, 2vh, 24px);
+  }
+
+  .hero .dashboard-demo {
+    transform: translateY(-10px);
   }
 
   .hero h1 {
-    margin-top: 16px;
-    font-size: clamp(2.8rem, 4.8vw, 4.75rem);
+    margin-top: 14px;
+    font-size: clamp(2.6rem, 4.4vw, 4.3rem);
   }
 
   .hero-text {
-    margin-top: 16px;
+    margin-top: 14px;
     font-size: 1.04rem;
   }
 
-  .trust-line {
-    margin-top: 14px;
+  .hero-trust {
+    padding: 12px 16px;
   }
 
   .hero-actions {
-    margin-top: 20px;
+    margin-top: 18px;
   }
 
   .dashboard-top {
@@ -167,6 +176,10 @@
     padding: 16px 0;
   }
 
+  .hero .dashboard-demo {
+    transform: translateY(-8px);
+  }
+
   .dashboard-card {
     height: 460px;
   }
@@ -182,16 +195,16 @@
   }
 
   .hero-text {
-    margin-top: 14px;
+    margin-top: 12px;
     font-size: 1rem;
   }
 
-  .trust-line {
-    margin-top: 12px;
+  .hero-trust {
+    padding: 10px 14px;
   }
 
   .hero-actions {
-    margin-top: 18px;
+    margin-top: 16px;
   }
 }
 
@@ -237,6 +250,11 @@
 
   .hero-actions {
     width: 100%;
+  }
+
+  .hero-trust {
+    align-items: flex-start;
+    justify-content: flex-start;
   }
 
   .btn {

@@ -15,14 +15,6 @@ export function HeroSection() {
             is easier to find, check and act on when it matters.
           </p>
 
-          <div class="trust-line">
-            <span class="trust-icon">&check;</span>
-            <span>
-              <strong>Local, practical admin support</strong> &mdash; without adding another
-              complicated software tool.
-            </span>
-          </div>
-
           <div class="hero-actions">
             ${Button({
               href: "contact.html",
@@ -38,6 +30,14 @@ export function HeroSection() {
         </div>
 
         ${DashboardCard()}
+
+        <div class="trust-line hero-trust">
+          <span class="trust-icon">&check;</span>
+          <span>
+            <strong>Local, practical admin support</strong> &mdash; without adding another
+            complicated software tool.
+          </span>
+        </div>
       </div>
     </section>
   `;
