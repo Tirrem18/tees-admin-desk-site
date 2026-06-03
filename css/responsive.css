@@ -628,10 +628,20 @@
     line-height: 1.45;
   }
 
+  .service-preview-copy {
+    margin-top: 8px;
+    font-size: 0.84rem;
+    line-height: 1.42;
+  }
+
+  .service-preview-copy + .service-comparison {
+    margin-top: 8px;
+  }
+
   .service-comparison {
     grid-template-columns: 1fr;
     gap: 8px;
-    margin-top: 10px;
+    margin-top: 8px;
   }
 
   .comparison-card {
@@ -642,7 +652,7 @@
     min-height: 0;
   }
 
-  .comparison-card ul {
+  .comparison-card > ul {
     gap: 3px;
     font-size: 0.7rem;
   }
@@ -822,7 +832,7 @@
   }
 
   .comparison-card.is-expanded {
-    min-height: 250px;
+    min-height: 0;
   }
 
   .services-reassurance {

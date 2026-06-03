@@ -47,16 +47,127 @@ const services = [
     panelBody:
       "I discuss your needs, review how your files are currently stored, and identify what needs sorting first. Then I create a clear folder structure so documents are easier to find, maintain and share.",
     before: [
-      "Documents",
-      "New folder",
-      "stuff",
-      "insurance latest",
-      "RAMS maybe",
-      "desktop files",
-      "scan0001.pdf",
-      "old certs",
-      "downloads",
-      "misc",
+      {
+        name: "Documents/",
+        children: [
+          { name: "insurance 2024.pdf" },
+          { name: "public liability NEW.pdf" },
+          { name: "old RAMS.docx" },
+          { name: "Training card - Dave.jpg" },
+        ],
+      },
+      {
+        name: "Insurance/",
+        children: [
+          { name: "PL cert.pdf" },
+          { name: "employers liability maybe.pdf" },
+          {
+            name: "insurance old/",
+            children: [{ name: "insurance 2022.pdf" }, { name: "insurance 2023.pdf" }],
+          },
+        ],
+      },
+      {
+        name: "RAMS/",
+        children: [
+          { name: "rams template.docx" },
+          { name: "site rams final final.pdf" },
+          { name: "stockton job rams.pdf" },
+        ],
+      },
+      {
+        name: "Training/",
+        children: [
+          { name: "cscs-john.png" },
+          { name: "forklift cert.pdf" },
+          { name: "first aid old.pdf" },
+        ],
+      },
+      {
+        name: "Quotes/",
+        children: [
+          { name: "quote 1.docx" },
+          { name: "quote accepted maybe.pdf" },
+          {
+            name: "sent quotes/",
+            children: [{ name: "abc builders quote.pdf" }, { name: "smith job quote.docx" }],
+          },
+        ],
+      },
+      {
+        name: "Jobs/",
+        children: [{ name: "job photos/" }, { name: "site docs/" }, { name: "invoice info.txt" }],
+      },
+      {
+        name: "Old certificates/",
+        children: [
+          { name: "gas safe old.pdf" },
+          { name: "expired insurance.pdf" },
+          { name: "training expired.jpg" },
+        ],
+      },
+      {
+        name: "Tender stuff/",
+        children: [
+          { name: "evidence.pdf" },
+          { name: "company info.docx" },
+          { name: "need to update this.docx" },
+        ],
+      },
+      {
+        name: "Admin/",
+        children: [{ name: "bank letter.pdf" }, { name: "company number.txt" }, { name: "policy.pdf" }],
+      },
+      {
+        name: "New folder/",
+        children: [{ name: "scan0001.pdf" }, { name: "scan0002.pdf" }, { name: "image.jpg" }],
+      },
+      {
+        name: "New folder (2)/",
+        children: [{ name: "document.pdf" }, { name: "cert maybe.pdf" }],
+      },
+      {
+        name: "stuff/",
+        children: [{ name: "important.pdf" }, { name: "dont delete.docx" }, { name: "random notes.txt" }],
+      },
+      {
+        name: "downloads/",
+        children: [{ name: "download.pdf" }, { name: "download (1).pdf" }, { name: "download (2).pdf" }],
+      },
+      {
+        name: "desktop files/",
+        children: [{ name: "rams.pdf" }, { name: "insurance.pdf" }, { name: "screenshot.png" }],
+      },
+      {
+        name: "invoices/",
+        children: [{ name: "invoice march.pdf" }, { name: "unpaid maybe.xlsx" }],
+      },
+      {
+        name: "certificates/",
+        children: [{ name: "cert.pdf" }, { name: "cert new.pdf" }, { name: "dave cert.pdf" }],
+      },
+      {
+        name: "accreditations maybe/",
+        children: [{ name: "safecontractor.pdf" }, { name: "chas old.pdf" }],
+      },
+      {
+        name: "H&S/",
+        children: [{ name: "policy old.docx" }, { name: "risk assessment.docx" }],
+      },
+      {
+        name: "email attachments/",
+        children: [{ name: "attachment.pdf" }, { name: "attachment2.pdf" }, { name: "sent by tom.pdf" }],
+      },
+      {
+        name: "whatsapp/",
+        children: [{ name: "IMG_4812.jpg" }, { name: "IMG_4813.jpg" }, { name: "video evidence.mp4" }],
+      },
+      { name: "Public Liability 2025.pdf" },
+      { name: "RAMS final final v2.pdf" },
+      { name: "scan0001.pdf" },
+      { name: "Untitled spreadsheet.xlsx" },
+      { name: "cert.jpg" },
+      { name: "notes.txt" },
     ],
     after: [
       "00_Admin",
@@ -124,32 +235,66 @@ function renderServiceStep(service, index) {
 function renderMoreRow(count, side) {
   return `
     <li>
-      <button class="comparison-row more-row" type="button" data-comparison-item="${side}">
+      <button class="comparison-row more-row" type="button" data-comparison-more="${side}">
         + ${count} more
       </button>
     </li>
   `;
 }
 
-function renderComparisonList(items, side, isExpanded) {
-  const visibleItems = isExpanded ? items : items.slice(0, 5);
+function getItemKey(side, item, index, parentKey = "") {
+  return `${side}-${parentKey}${index}-${item.name}`;
+}
+
+function renderComparisonItem(item, side, index, isExpanded, openFolderKey, depth = 0, parentKey = "") {
+  const hasChildren = Boolean(item.children?.length);
+  const itemKey = getItemKey(side, item, index, parentKey);
+  const isOpen = isExpanded && openFolderKey === itemKey;
+  const style = depth ? ` style="--depth: ${depth}"` : "";
+  const row = hasChildren
+    ? `
+      <button
+        class="comparison-row folder-row${isOpen ? " is-open" : ""}"
+        type="button"
+        data-comparison-folder="${side}"
+        data-folder-key="${itemKey}"
+        ${style}
+      >
+        <span class="file-cue folder-cue"></span>${item.name}
+      </button>
+    `
+    : `
+      <span class="comparison-row file-row"${style}>
+        <span class="file-cue"></span>${item.name}
+      </span>
+    `;
+  const children =
+    isOpen && hasChildren
+      ? `
+        <ul class="comparison-nested-list">
+          ${item.children
+            .map((child, childIndex) =>
+              renderComparisonItem(child, side, childIndex, isExpanded, openFolderKey, depth + 1, `${itemKey}-`)
+            )
+            .join("")}
+        </ul>
+      `
+      : "";
+
+  return `<li>${row}${children}</li>`;
+}
+
+function renderComparisonList(items, side, isExpanded, openFolderKey) {
+  const visibleItems = isExpanded ? items : items.slice(0, side === "before" ? 6 : 5);
   const hiddenCount = items.length - visibleItems.length;
   const itemRows = visibleItems
-    .map(
-      (item) => `
-        <li>
-          <button class="comparison-row" type="button" data-comparison-item="${side}">
-            ${item}
-          </button>
-        </li>
-      `
-    )
+    .map((item, index) => renderComparisonItem(item, side, index, isExpanded, openFolderKey))
     .join("");
 
   return `${itemRows}${!isExpanded && hiddenCount > 0 ? renderMoreRow(hiddenCount, side) : ""}`;
 }
 
-function renderComparisonCard(label, side, items, expandedSide) {
+function renderComparisonCard(label, side, items, expandedSide, openFolderKey) {
   const isExpanded = expandedSide === side;
   const buttonLabel = `${isExpanded ? "Minimise" : "Expand"} ${side} example`;
   const icon = isExpanded
@@ -184,12 +329,13 @@ function renderComparisonCard(label, side, items, expandedSide) {
           ${icon}
         </button>
       </div>
-      <ul>${renderComparisonList(items, side, isExpanded)}</ul>
+      <ul data-comparison-list="${side}">${renderComparisonList(items, side, isExpanded, openFolderKey)}</ul>
     </div>
   `;
 }
 
-function renderPreviewContent(service, expandedSide = null) {
+function renderPreviewContent(service, expandedSide = null, openFolderKey = null) {
+  const isExpanded = Boolean(expandedSide);
   const comparison =
     service.before && service.after
       ? `
@@ -197,24 +343,30 @@ function renderPreviewContent(service, expandedSide = null) {
           ${
             expandedSide === "after"
               ? ""
-              : renderComparisonCard("Before", "before", service.before, expandedSide)
+              : renderComparisonCard("Before", "before", service.before, expandedSide, openFolderKey)
           }
           ${
             expandedSide === "before"
               ? ""
-              : renderComparisonCard("After", "after", service.after, expandedSide)
+              : renderComparisonCard("After", "after", service.after, expandedSide, openFolderKey)
           }
         </div>
       `
       : "";
 
   return `
-    <div class="service-preview-heading">
-      <h3 data-service-preview-title>${service.title}</h3>
-      <span class="service-preview-label" data-service-preview-label>${service.panelLabel}</span>
-    </div>
-    <p class="${expandedSide ? "is-hidden" : ""}" data-service-preview-body>${service.panelBody}</p>
-    <div data-service-preview-extra>${comparison}</div>
+    ${
+      isExpanded
+        ? ""
+        : `
+          <div class="service-preview-heading">
+            <h3 data-service-preview-title>${service.title}</h3>
+            <span class="service-preview-label" data-service-preview-label>${service.panelLabel}</span>
+          </div>
+        `
+    }
+    ${isExpanded ? "" : `<p class="service-preview-copy" data-service-preview-body>${service.panelBody}</p>`}
+    ${comparison}
   `;
 }
 
@@ -267,10 +419,27 @@ export function initServicesSection() {
 
   let activeServiceIndex = 0;
   let expandedComparisonSide = null;
+  let openFolderKey = null;
+
+  function renderPreview(service, scrollState = null) {
+    preview.innerHTML = renderPreviewContent(service, expandedComparisonSide, openFolderKey);
+
+    if (!scrollState) {
+      return;
+    }
+
+    const list = preview.querySelector(`[data-comparison-list="${scrollState.side}"]`);
+
+    if (list) {
+      const maxScrollTop = Math.max(0, list.scrollHeight - list.clientHeight);
+      list.scrollTop = Math.min(scrollState.scrollTop, maxScrollTop);
+    }
+  }
 
   function setActiveService(index) {
     activeServiceIndex = index;
     expandedComparisonSide = null;
+    openFolderKey = null;
 
     const service = services[index] || services[0];
 
@@ -283,7 +452,7 @@ export function initServicesSection() {
 
     preview.classList.remove("red", "teal", "amber", "blue", "is-changing");
     preview.classList.add(service.iconClass, "is-changing");
-    preview.innerHTML = renderPreviewContent(service, expandedComparisonSide);
+    renderPreview(service);
 
     window.setTimeout(() => {
       preview.classList.remove("is-changing");
@@ -298,6 +467,34 @@ export function initServicesSection() {
 
   preview.addEventListener("click", (event) => {
     const toggle = event.target.closest("[data-comparison-toggle]");
+    const folder = event.target.closest("[data-comparison-folder]");
+    const more = event.target.closest("[data-comparison-more]");
+
+    if (folder) {
+      const side = folder.dataset.comparisonFolder;
+      const folderKey = folder.dataset.folderKey;
+      const service = services[activeServiceIndex] || services[0];
+      const list = preview.querySelector(`[data-comparison-list="${side}"]`);
+      const scrollState =
+        expandedComparisonSide === side && list
+          ? { side, scrollTop: list.scrollTop }
+          : null;
+
+      expandedComparisonSide = side;
+      openFolderKey = openFolderKey === folderKey ? null : folderKey;
+      renderPreview(service, scrollState);
+      return;
+    }
+
+    if (more) {
+      const side = more.dataset.comparisonMore;
+      const service = services[activeServiceIndex] || services[0];
+
+      expandedComparisonSide = side;
+      openFolderKey = null;
+      renderPreview(service);
+      return;
+    }
 
     if (!toggle) {
       return;
@@ -307,6 +504,7 @@ export function initServicesSection() {
     const service = services[activeServiceIndex] || services[0];
 
     expandedComparisonSide = expandedComparisonSide === side ? null : side;
-    preview.innerHTML = renderPreviewContent(service, expandedComparisonSide);
+    openFolderKey = null;
+    renderPreview(service);
   });
 }
