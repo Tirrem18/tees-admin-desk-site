@@ -259,6 +259,8 @@
 
   .brand {
     flex: 0 0 auto;
+    background: transparent;
+    padding: 0;
   }
 
   .brand-copy {
@@ -268,6 +270,7 @@
   .brand-logo {
     width: 44px;
     height: 44px;
+    background: transparent;
   }
 
   .site-nav {
@@ -324,18 +327,25 @@
   }
 
   .nav-toggle {
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     margin-left: auto;
-    width: 29px;
-    height: 29px;
+    width: 28px;
+    height: 28px;
     gap: 2px;
     padding: 0;
-    border-radius: 8px;
+    border-color: rgba(23, 39, 61, 0.14);
+    border-radius: 7px;
+    background: transparent;
+    color: var(--navy-dark);
   }
 
   .nav-toggle span {
     width: 12px;
-    height: 2.5px;
+    height: 2px;
+    background: currentColor;
   }
 
   .hero {
@@ -515,8 +525,8 @@
   }
 
   .nav-toggle {
-    width: 28px;
-    height: 28px;
+    width: 27px;
+    height: 27px;
   }
 
   .dashboard-card {
