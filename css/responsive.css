@@ -749,27 +749,25 @@
   }
 
   .deadline-tracker {
-    --deadline-expiry-column: 4.9rem;
-    --deadline-days-column: 4.25rem;
-    --deadline-status-column: 4.55rem;
-  }
-
-  .deadline-tracker-head,
-  .deadline-row {
-    gap: 5px;
+    gap: 6px;
   }
 
   .deadline-tracker-head {
-    padding-inline: 8px;
-    font-size: 0.58rem;
+    display: none;
   }
 
   .deadline-row {
-    padding: 7px 8px;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    gap: 5px 7px;
+    padding: 8px;
   }
 
-  .deadline-tracker-list .deadline-row:nth-child(4) {
+  .deadline-tracker-list .deadline-row:nth-child(n + 4) {
     display: none;
+  }
+
+  .deadline-item {
+    grid-column: 1 / -1;
   }
 
   .deadline-item strong {
@@ -783,8 +781,9 @@
   }
 
   .deadline-row .status-pill {
-    padding: 4px 6px;
-    font-size: 0.6rem;
+    justify-self: end;
+    padding: 3px 6px;
+    font-size: 0.58rem;
   }
 
   .chase-queue {
@@ -805,7 +804,7 @@
     padding: 8px;
   }
 
-  .chase-queue-list .chase-row:nth-child(4) {
+  .chase-queue-list .chase-row:nth-child(n + 4) {
     display: none;
   }
 
@@ -846,32 +845,37 @@
 
   .monthly-summary-strip {
     gap: 5px;
-    margin-bottom: 5px;
-    padding-bottom: 6px;
+    margin-bottom: 4px;
+    padding-bottom: 5px;
   }
 
   .monthly-summary-item {
-    padding: 3px 6px;
-    font-size: 0.6rem;
+    gap: 4px;
+    padding: 3px 5px;
+    font-size: 0.58rem;
   }
 
   .monthly-summary-item strong {
-    font-size: 0.64rem;
+    font-size: 0.62rem;
   }
 
   .monthly-overview-row {
-    gap: 6px;
-    min-height: 34px;
-    padding: 5px 3px;
+    grid-template-columns: auto minmax(0, 1fr) max-content;
+    gap: 5px;
+    min-height: 32px;
+    padding: 4px 2px;
   }
 
   .monthly-overview-label {
-    font-size: 0.7rem;
+    font-size: 0.68rem;
+    line-height: 1.18;
+    white-space: normal;
   }
 
   .monthly-overview-row .status-pill {
-    padding: 3px 6px;
-    font-size: 0.58rem;
+    align-self: center;
+    padding: 3px 5px;
+    font-size: 0.56rem;
   }
 
   .service-comparison {
