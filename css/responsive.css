@@ -411,7 +411,7 @@
 
   .hero h1 {
     margin-top: 0;
-    font-size: clamp(2rem, 7.2vw, 2.45rem);
+    font-size: clamp(2.12rem, 7.8vw, 2.62rem);
     line-height: 1.04;
   }
 
@@ -768,6 +768,10 @@
     padding: 7px 8px;
   }
 
+  .deadline-tracker-list .deadline-row:nth-child(4) {
+    display: none;
+  }
+
   .deadline-item strong {
     font-size: 0.74rem;
   }
@@ -799,6 +803,10 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 6px 8px;
     padding: 8px;
+  }
+
+  .chase-queue-list .chase-row:nth-child(4) {
+    display: none;
   }
 
   .chase-row span {
@@ -833,37 +841,37 @@
   }
 
   .monthly-overview {
-    padding: 8px;
+    padding: 6px 7px;
   }
 
   .monthly-summary-strip {
-    gap: 6px;
-    margin-bottom: 7px;
-    padding-bottom: 8px;
+    gap: 5px;
+    margin-bottom: 5px;
+    padding-bottom: 6px;
   }
 
   .monthly-summary-item {
-    padding: 4px 7px;
-    font-size: 0.62rem;
+    padding: 3px 6px;
+    font-size: 0.6rem;
   }
 
   .monthly-summary-item strong {
-    font-size: 0.66rem;
+    font-size: 0.64rem;
   }
 
   .monthly-overview-row {
-    gap: 7px;
-    min-height: 38px;
-    padding: 7px 4px;
+    gap: 6px;
+    min-height: 34px;
+    padding: 5px 3px;
   }
 
   .monthly-overview-label {
-    font-size: 0.72rem;
+    font-size: 0.7rem;
   }
 
   .monthly-overview-row .status-pill {
-    padding: 4px 6px;
-    font-size: 0.6rem;
+    padding: 3px 6px;
+    font-size: 0.58rem;
   }
 
   .service-comparison {
@@ -1179,10 +1187,6 @@
 }
 
 @media (max-width: 360px) {
-  .chase-queue-list .chase-row:nth-child(4) {
-    display: none;
-  }
-
   .service-step {
     grid-template-columns: auto minmax(0, 1fr);
   }
