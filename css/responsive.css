@@ -415,19 +415,23 @@
   }
 
   .hero {
-    padding: 48px 0 36px;
+    padding: 20px 0 32px;
   }
 
   .hero h1 {
-    font-size: clamp(2.65rem, 13vw, 4rem);
+    margin-top: 0;
+    font-size: clamp(2rem, 7.2vw, 2.45rem);
+    line-height: 1.04;
   }
 
   .hero-text {
+    max-width: 520px;
     font-size: 1rem;
   }
 
   .hero-actions {
     width: 100%;
+    gap: 10px;
   }
 
   .hero-trust {
@@ -435,8 +439,83 @@
     justify-content: flex-start;
   }
 
+  .hero-dashboard-desktop {
+    display: none;
+  }
+
   .btn {
     width: 100%;
+  }
+
+  .hero-example-shell {
+    display: block;
+    width: 100%;
+    max-width: 520px;
+    margin: 10px auto 0;
+  }
+
+  .hero-example-toggle {
+    display: inline-flex;
+  }
+
+  .hero-example-content[hidden],
+  .hero-example-shell[data-example-state="closed"] .hero-example-content {
+    display: none;
+  }
+
+  .hero-example-shell[data-example-state="open"] {
+    position: relative;
+    padding: 12px;
+    border: 1px solid rgba(16, 175, 171, 0.42);
+    border-radius: 20px;
+    background: var(--white);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .hero-example-shell[data-example-state="open"] .hero-example-toggle {
+    display: none;
+  }
+
+  .hero-example-shell[data-example-state="open"] .hero-example-content {
+    display: block;
+  }
+
+  .hero-example-shell[data-example-state="open"] .hero-example-close {
+    position: absolute;
+    top: 13px;
+    right: 14px;
+    display: grid;
+    place-items: center;
+    width: 24px;
+    height: 24px;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: rgba(23, 39, 61, 0.5);
+    font: inherit;
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .hero-example-shell[data-example-state="open"] .hero-example-close:hover,
+  .hero-example-shell[data-example-state="open"] .hero-example-close:focus-visible {
+    background: #f5f8fa;
+    color: var(--navy-dark);
+    outline: none;
+  }
+
+  .hero-dashboard-mobile .example-switcher {
+    justify-content: flex-start;
+    padding-right: 34px;
+  }
+
+  .hero-dashboard-mobile .example-switcher span {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .dashboard-top {

@@ -1,7 +1,7 @@
 import { Header, initHeaderMenu } from "./components/Header.js";
 import { Footer } from "./components/Footer.js";
 import { initDashboardCard } from "./components/DashboardCard.js";
-import { HeroSection } from "./sections/HeroSection.js";
+import { HeroSection, initHeroExampleToggle } from "./sections/HeroSection.js";
 import { ProblemSection } from "./sections/ProblemSection.js";
 import { ServicesSection, initServicesSection } from "./sections/ServicesSection.js";
 import { WhySection } from "./sections/WhySection.js";
@@ -26,5 +26,6 @@ app.innerHTML = [
 footerMount.outerHTML = Footer();
 
 initHeaderMenu();
+initHeroExampleToggle();
 initServicesSection();
 initDashboardCard();

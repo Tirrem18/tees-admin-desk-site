@@ -107,3 +107,29 @@
   flex-wrap: wrap;
   gap: 14px;
 }
+
+@media (min-width: 1041px) {
+  .hero h1 {
+    font-size: clamp(2.8rem, 4.8vw, 4.7rem);
+  }
+
+  .hero-text {
+    font-size: clamp(1.05rem, 1vw, 1.13rem);
+  }
+}
+
+.hero-example-shell {
+  display: none;
+}
+
+.hero-example-toggle {
+  display: none;
+  border: 1px solid rgba(16, 175, 171, 0.42);
+  appearance: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+.hero-example-close {
+  display: none;
+}

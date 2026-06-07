@@ -591,50 +591,62 @@ function updateDashboard(demo) {
   });
 }
 
-export function initDashboardCard() {
-  const demo = document.querySelector(".dashboard-demo");
+function updateAllDashboards() {
+  document.querySelectorAll(".dashboard-demo").forEach((demo) => {
+    updateDashboard(demo);
+  });
+}
 
-  if (!demo || demo.dataset.dashboardReady === "true") {
+export function initDashboardCard() {
+  const demos = document.querySelectorAll(".dashboard-demo");
+
+  if (!demos.length) {
     return;
   }
 
-  demo.dataset.dashboardReady = "true";
-  updateDashboardScrollState(demo.querySelector("[data-report-body]"));
-
-  demo.addEventListener("click", (event) => {
-    const exampleButton = event.target.closest("[data-example-direction]");
-    const tabButton = event.target.closest("[data-report-tab]");
-    const expiryToggle = event.target.closest("[data-expiry-toggle]");
-    const expandToggle = event.target.closest("[data-expand-key]");
-
-    if (exampleButton) {
-      switchExample(Number(exampleButton.dataset.exampleDirection));
-      updateDashboard(demo);
+  demos.forEach((demo) => {
+    if (demo.dataset.dashboardReady === "true") {
       return;
     }
 
-    if (tabButton) {
-      dashboardState.activeTab = tabButton.dataset.reportTab;
-      updateDashboard(demo);
-      return;
-    }
+    demo.dataset.dashboardReady = "true";
+    updateDashboardScrollState(demo.querySelector("[data-report-body]"));
 
-    if (expiryToggle) {
-      dashboardState.expiryExpanded = !dashboardState.expiryExpanded;
-      updateDashboard(demo);
-      return;
-    }
+    demo.addEventListener("click", (event) => {
+      const exampleButton = event.target.closest("[data-example-direction]");
+      const tabButton = event.target.closest("[data-report-tab]");
+      const expiryToggle = event.target.closest("[data-expiry-toggle]");
+      const expandToggle = event.target.closest("[data-expand-key]");
 
-    if (expandToggle) {
-      const expandKey = expandToggle.dataset.expandKey;
-
-      if (dashboardState.expandedRows.has(expandKey)) {
-        dashboardState.expandedRows.delete(expandKey);
-      } else {
-        dashboardState.expandedRows.add(expandKey);
+      if (exampleButton) {
+        switchExample(Number(exampleButton.dataset.exampleDirection));
+        updateAllDashboards();
+        return;
       }
 
-      updateDashboard(demo);
-    }
+      if (tabButton) {
+        dashboardState.activeTab = tabButton.dataset.reportTab;
+        updateAllDashboards();
+        return;
+      }
+
+      if (expiryToggle) {
+        dashboardState.expiryExpanded = !dashboardState.expiryExpanded;
+        updateAllDashboards();
+        return;
+      }
+
+      if (expandToggle) {
+        const expandKey = expandToggle.dataset.expandKey;
+
+        if (dashboardState.expandedRows.has(expandKey)) {
+          dashboardState.expandedRows.delete(expandKey);
+        } else {
+          dashboardState.expandedRows.add(expandKey);
+        }
+
+        updateAllDashboards();
+      }
+    });
   });
 }
