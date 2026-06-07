@@ -48,6 +48,35 @@ const services = [
       "I discuss your needs, review how your files are currently stored, and identify what needs sorting first. Then I create a clear folder structure so documents are easier to find, maintain and share.",
     before: [
       {
+        name: "IMPORTANT/",
+        children: [
+          { name: "RAMS template.docx" },
+          { name: "Stockton job RAMS final.pdf" },
+          { name: "rams final final v2.pdf" },
+          { name: "health and safety policy old.docx" },
+        ],
+      },
+      { name: "New admin 2026/" },
+      { name: "photos/" },
+      {
+        name: "Training certs and records/",
+        children: [
+          { name: "Dave CSCS.jpg" },
+          { name: "John forklift cert.pdf" },
+          { name: "first aid expired.pdf" },
+          { name: "IPAF - need new copy.png" },
+        ],
+      },
+      {
+        name: "Quotes and jobs/",
+        children: [
+          { name: "quote 1.docx" },
+          { name: "Wilson job quote sent.pdf" },
+          { name: "accepted quote maybe.pdf" },
+          { name: "old quotes/", children: [{ name: "abc builders quote.pdf" }, { name: "smith job quote.docx" }] },
+        ],
+      },
+      {
         name: "2025/26 admin bits/",
         children: [
           { name: "public liability 2024.pdf" },
@@ -63,33 +92,6 @@ const services = [
           { name: "employers liability 2025 maybe.pdf" },
           { name: "insurance schedule.pdf" },
           { name: "old insurance/", children: [{ name: "insurance 2022.pdf" }, { name: "insurance 2023.pdf" }] },
-        ],
-      },
-      {
-        name: "IMPORTANT/",
-        children: [
-          { name: "RAMS template.docx" },
-          { name: "Stockton job RAMS final.pdf" },
-          { name: "rams final final v2.pdf" },
-          { name: "health and safety policy old.docx" },
-        ],
-      },
-      {
-        name: "training certs/",
-        children: [
-          { name: "Dave CSCS.jpg" },
-          { name: "John forklift cert.pdf" },
-          { name: "first aid expired.pdf" },
-          { name: "IPAF - need new copy.png" },
-        ],
-      },
-      {
-        name: "Quotes sent/",
-        children: [
-          { name: "quote 1.docx" },
-          { name: "Wilson job quote sent.pdf" },
-          { name: "accepted quote maybe.pdf" },
-          { name: "old quotes/", children: [{ name: "abc builders quote.pdf" }, { name: "smith job quote.docx" }] },
         ],
       },
       {
@@ -174,7 +176,7 @@ const services = [
     ],
     after: [
       {
-        name: "00_Admin/",
+        name: "00 Admin/",
         type: "folder",
         children: [
           {
@@ -202,7 +204,7 @@ const services = [
         ],
       },
       {
-        name: "01_Insurance/",
+        name: "01 Insurance/",
         type: "folder",
         children: [
           {
@@ -235,7 +237,7 @@ const services = [
         ],
       },
       {
-        name: "02_Health_&_Safety_RAMS/",
+        name: "02 Health & Safety RAMS/",
         type: "folder",
         children: [
           {
@@ -266,7 +268,7 @@ const services = [
         ],
       },
       {
-        name: "03_Training_Records/",
+        name: "03 Training Records/",
         type: "folder",
         children: [
           {
@@ -290,7 +292,7 @@ const services = [
         ],
       },
       {
-        name: "04_Accreditations/",
+        name: "04 Accreditations/",
         type: "folder",
         children: [
           {
@@ -309,7 +311,7 @@ const services = [
         ],
       },
       {
-        name: "05_Quotes_&_Tenders/",
+        name: "05 Quotes & Tenders/",
         type: "folder",
         children: [
           {
@@ -341,7 +343,7 @@ const services = [
         ],
       },
       {
-        name: "06_Job_Documents/",
+        name: "06 Job Documents/",
         type: "folder",
         children: [
           {
@@ -374,7 +376,7 @@ const services = [
         ],
       },
       {
-        name: "07_Subcontractors/",
+        name: "07 Subcontractors/",
         type: "folder",
         children: [
           { name: "Tom_Public_Liability.pdf", type: "file" },
@@ -383,7 +385,7 @@ const services = [
         ],
       },
       {
-        name: "08_Finance/",
+        name: "08 Finance/",
         type: "folder",
         children: [
           {
@@ -402,7 +404,7 @@ const services = [
         ],
       },
       {
-        name: "09_To_Confirm/",
+        name: "09 To Confirm/",
         type: "folder",
         children: [
           { name: "Scan0001.pdf", type: "file" },
@@ -420,7 +422,7 @@ const services = [
         ],
       },
       {
-        name: "99_Archive/",
+        name: "99 Archive/",
         type: "folder",
         children: [
           {
@@ -461,10 +463,38 @@ const services = [
     icon: "calendar",
     iconClass: "teal",
     title: "Deadline & renewal tracking",
-    text: "I record key dates, renewals, certificates, checks and deadlines so nothing important gets missed.",
+    text:
+      "I track key dates, renewals, certificates, checks and deadlines, then contact you before things run out based on the reminder timing you choose.",
     panelLabel: "Step 2 preview",
     panelBody:
-      "Placeholder content for service 2. This area will later show tracked renewal dates, upcoming deadlines and expiry warnings.",
+      "A simple tracker keeps expiry dates, follow-ups and review points in one place, sorted by what needs attention first.",
+    deadlines: [
+      {
+        title: "RAMS review",
+        source: "02 Health & Safety RAMS",
+        daysRemaining: -14,
+      },
+      {
+        title: "Training certificate",
+        source: "03 Training Records",
+        daysRemaining: 20,
+      },
+      {
+        title: "Public liability insurance",
+        source: "01 Insurance",
+        daysRemaining: 95,
+      },
+      {
+        title: "Accreditation renewal",
+        source: "04 Accreditations",
+        daysRemaining: 140,
+      },
+      {
+        title: "Quote follow-up",
+        source: "05 Quotes & Tenders",
+        daysRemaining: 180,
+      },
+    ],
   },
   {
     number: "03",
@@ -488,6 +518,31 @@ const services = [
   },
 ];
 
+const COMPARISON_MOBILE_QUERY = "(max-width: 720px)";
+const DESKTOP_COMPARISON_VISIBLE_COUNT = 6;
+const MOBILE_COMPARISON_VISIBLE_COUNT = 5;
+const MOBILE_DEADLINE_VISIBLE_COUNT = 4;
+
+function isMobileServiceViewport() {
+  return (
+    typeof window !== "undefined" &&
+    typeof window.matchMedia === "function" &&
+    window.matchMedia(COMPARISON_MOBILE_QUERY).matches
+  );
+}
+
+function getComparisonVisibleCount() {
+  if (isMobileServiceViewport()) {
+    return MOBILE_COMPARISON_VISIBLE_COUNT;
+  }
+
+  return DESKTOP_COMPARISON_VISIBLE_COUNT;
+}
+
+function getDeadlineVisibleCount(deadlineCount) {
+  return isMobileServiceViewport() ? MOBILE_DEADLINE_VISIBLE_COUNT : deadlineCount;
+}
+
 function renderServiceStep(service, index) {
   const isActive = index === 0;
 
@@ -502,7 +557,6 @@ function renderServiceStep(service, index) {
       <span class="service-step-icon ${service.iconClass}">${icons[service.icon]}</span>
       <span class="service-step-copy">
         <span class="service-step-title">${service.title}</span>
-        <span class="service-step-text">${service.text}</span>
       </span>
     </button>
   `;
@@ -537,7 +591,6 @@ function renderMobileServiceNavigatorContent(index) {
       <span class="service-step-copy">
         <span class="mobile-service-count">Step ${index + 1} of ${services.length}</span>
         <span class="service-step-title">${service.title}</span>
-        <span class="service-step-text">${service.text}</span>
       </span>
     </div>
     ${renderServiceArrow(1, index === services.length - 1)}
@@ -598,7 +651,7 @@ function renderComparisonItem(item, side, index, isExpanded, openFolderKeys, dep
 }
 
 function renderComparisonList(items, side, isExpanded, openFolderKeys) {
-  const visibleItems = isExpanded ? items : items.slice(0, 6);
+  const visibleItems = isExpanded ? items : items.slice(0, getComparisonVisibleCount());
   const hiddenCount = items.length - visibleItems.length;
   const itemRows = visibleItems
     .map((item, index) => renderComparisonItem(item, side, index, isExpanded, openFolderKeys))
@@ -647,6 +700,91 @@ function renderComparisonCard(label, side, items, expandedSide, openFolderKeys) 
   `;
 }
 
+function addDaysToToday(daysRemaining) {
+  const date = new Date();
+
+  date.setHours(12, 0, 0, 0);
+  date.setDate(date.getDate() + daysRemaining);
+
+  return date;
+}
+
+function formatExpiryDate(daysRemaining) {
+  return new Intl.DateTimeFormat("en-GB", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+  }).format(addDaysToToday(daysRemaining));
+}
+
+function formatDaysRemaining(daysRemaining) {
+  if (daysRemaining < 0) {
+    return `${Math.abs(daysRemaining)} days overdue`;
+  }
+
+  if (daysRemaining === 0) {
+    return "Today";
+  }
+
+  return `${daysRemaining} ${daysRemaining === 1 ? "day" : "days"}`;
+}
+
+function getDeadlineStatus(daysRemaining) {
+  if (daysRemaining < 0) {
+    return {
+      statusClass: "expired",
+      statusLabel: "Expired",
+    };
+  }
+
+  if (daysRemaining < 90) {
+    return {
+      statusClass: "expiring",
+      statusLabel: "Due soon",
+    };
+  }
+
+  return {
+    statusClass: "future",
+    statusLabel: "Upcoming",
+  };
+}
+
+function renderDeadlineTracker(deadlines) {
+  const sortedDeadlines = [...deadlines].sort((first, second) => first.daysRemaining - second.daysRemaining);
+  const visibleDeadlines = sortedDeadlines.slice(0, getDeadlineVisibleCount(sortedDeadlines.length));
+
+  return `
+    <div class="deadline-tracker" aria-label="Deadline tracker example">
+      <div class="deadline-tracker-head">
+        <span>Item</span>
+        <span>Expiry</span>
+        <span>Days</span>
+        <span>Status</span>
+      </div>
+      <ul class="deadline-tracker-list">
+        ${visibleDeadlines
+          .map((deadline) => {
+            const status = getDeadlineStatus(deadline.daysRemaining);
+
+            return `
+              <li class="deadline-row">
+                <span class="deadline-item">
+                  <strong>${deadline.title}</strong>
+                  <span>${deadline.source}</span>
+                </span>
+                <span class="deadline-date">${formatExpiryDate(deadline.daysRemaining)}</span>
+                <span class="deadline-days">${formatDaysRemaining(deadline.daysRemaining)}</span>
+                <span class="status-pill ${status.statusClass}">${status.statusLabel}</span>
+              </li>
+            `;
+          })
+          .join("")}
+      </ul>
+    </div>
+  `;
+}
+
 function renderPreviewContent(service, expandedSide = null, openFolderKeys = []) {
   const isExpanded = Boolean(expandedSide);
   const comparison =
@@ -666,6 +804,7 @@ function renderPreviewContent(service, expandedSide = null, openFolderKeys = [])
         </div>
       `
       : "";
+  const deadlineTracker = service.deadlines ? renderDeadlineTracker(service.deadlines) : "";
 
   return `
     ${
@@ -680,6 +819,7 @@ function renderPreviewContent(service, expandedSide = null, openFolderKeys = [])
     }
     ${isExpanded ? "" : `<p class="service-preview-copy" data-service-preview-body>${service.panelBody}</p>`}
     ${comparison}
+    ${deadlineTracker}
   `;
 }
 
@@ -738,6 +878,10 @@ export function initServicesSection() {
   let activeServiceIndex = 0;
   let expandedComparisonSide = null;
   let openFolderKeys = [];
+  const comparisonMediaQuery =
+    typeof window !== "undefined" && typeof window.matchMedia === "function"
+      ? window.matchMedia(COMPARISON_MOBILE_QUERY)
+      : null;
 
   function renderPreview(service, scrollState = null) {
     preview.innerHTML = renderPreviewContent(service, expandedComparisonSide, openFolderKeys);
@@ -759,6 +903,10 @@ export function initServicesSection() {
       mobileNav.innerHTML = renderMobileServiceNavigatorContent(activeServiceIndex);
     }
   }
+
+  comparisonMediaQuery?.addEventListener("change", () => {
+    renderPreview(services[activeServiceIndex] || services[0]);
+  });
 
   function setActiveService(index) {
     activeServiceIndex = Math.max(0, Math.min(index, services.length - 1));

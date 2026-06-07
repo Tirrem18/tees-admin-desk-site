@@ -507,8 +507,10 @@
   }
 
   .hero-dashboard-mobile .example-switcher {
-    justify-content: flex-start;
-    padding-right: 34px;
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: center;
+    padding-inline: 34px;
   }
 
   .hero-dashboard-mobile .example-switcher span {
@@ -706,9 +708,16 @@
 
   .mobile-service-card {
     grid-template-columns: auto auto minmax(0, 1fr);
-    gap: 9px;
-    padding: 10px;
+    gap: 8px;
+    height: clamp(82px, 20vw, 96px);
+    min-height: 82px;
+    padding: 8px 10px;
     border-radius: 16px;
+    overflow: visible;
+  }
+
+  .mobile-service-card .service-step-copy {
+    align-self: center;
   }
 
   .mobile-service-arrow {
@@ -718,7 +727,7 @@
   }
 
   .service-preview {
-    height: 390px;
+    height: 410px;
     min-height: 0;
     padding: 14px;
     border-radius: 20px;
@@ -748,14 +757,46 @@
     margin-top: 8px;
   }
 
+  .deadline-tracker-head,
+  .deadline-row {
+    grid-template-columns: minmax(0, 1fr) auto auto auto;
+    gap: 5px;
+  }
+
+  .deadline-tracker-head {
+    padding-inline: 8px;
+    font-size: 0.58rem;
+  }
+
+  .deadline-row {
+    padding: 7px 8px;
+  }
+
+  .deadline-item strong {
+    font-size: 0.74rem;
+  }
+
+  .deadline-item span,
+  .deadline-date,
+  .deadline-days {
+    font-size: 0.62rem;
+  }
+
+  .deadline-row .status-pill {
+    padding: 4px 6px;
+    font-size: 0.6rem;
+  }
+
   .service-comparison {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 8px;
+    margin-inline: -6px;
     margin-top: 8px;
   }
 
   .comparison-card {
-    padding: 10px;
+    min-width: 0;
+    padding: 8px;
   }
 
   .comparison-card.is-expanded {
@@ -764,7 +805,11 @@
 
   .comparison-card > ul {
     gap: 3px;
-    font-size: 0.7rem;
+    font-size: clamp(0.58rem, 2.2vw, 0.7rem);
+  }
+
+  .comparison-row {
+    overflow-wrap: anywhere;
   }
 
   .services-reassurance {
@@ -857,7 +902,7 @@
   }
 
   .service-preview {
-    height: 380px;
+    height: 400px;
     min-height: 0;
   }
 
@@ -943,7 +988,7 @@
 
   .mobile-service-card {
     gap: 8px;
-    padding: 9px;
+    padding: 8px;
   }
 
   .mobile-service-arrow {
@@ -952,7 +997,7 @@
   }
 
   .service-preview {
-    height: 360px;
+    height: 380px;
     min-height: 0;
     padding: 12px;
   }
