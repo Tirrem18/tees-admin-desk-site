@@ -757,9 +757,14 @@
     margin-top: 8px;
   }
 
+  .deadline-tracker {
+    --deadline-expiry-column: 4.9rem;
+    --deadline-days-column: 4.25rem;
+    --deadline-status-column: 4.55rem;
+  }
+
   .deadline-tracker-head,
   .deadline-row {
-    grid-template-columns: minmax(0, 1fr) auto auto auto;
     gap: 5px;
   }
 
@@ -783,6 +788,89 @@
   }
 
   .deadline-row .status-pill {
+    padding: 4px 6px;
+    font-size: 0.6rem;
+  }
+
+  .chase-queue {
+    gap: 6px;
+  }
+
+  .chase-queue-head {
+    display: none;
+  }
+
+  .chase-queue-list {
+    gap: 6px;
+  }
+
+  .chase-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px 8px;
+    padding: 8px;
+  }
+
+  .chase-row span {
+    display: grid;
+    gap: 2px;
+    font-size: 0.66rem;
+    white-space: normal;
+  }
+
+  .chase-row span::before {
+    content: attr(data-label);
+    color: var(--muted);
+    font-size: 0.55rem;
+    font-weight: 850;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .chase-row .chase-item,
+  .chase-row .chase-action {
+    font-size: 0.7rem;
+  }
+
+  .chase-row .chase-last {
+    padding: 3px 7px;
+    font-size: 0.62rem;
+  }
+
+  .chase-row .chase-last::before {
+    color: inherit;
+    opacity: 0.72;
+  }
+
+  .monthly-overview {
+    padding: 8px;
+  }
+
+  .monthly-summary-strip {
+    gap: 6px;
+    margin-bottom: 7px;
+    padding-bottom: 8px;
+  }
+
+  .monthly-summary-item {
+    padding: 4px 7px;
+    font-size: 0.62rem;
+  }
+
+  .monthly-summary-item strong {
+    font-size: 0.66rem;
+  }
+
+  .monthly-overview-row {
+    gap: 7px;
+    min-height: 38px;
+    padding: 7px 4px;
+  }
+
+  .monthly-overview-label {
+    font-size: 0.72rem;
+  }
+
+  .monthly-overview-row .status-pill {
     padding: 4px 6px;
     font-size: 0.6rem;
   }
@@ -1109,6 +1197,10 @@
 }
 
 @media (max-width: 360px) {
+  .chase-queue-list .chase-row:nth-child(4) {
+    display: none;
+  }
+
   .service-step {
     grid-template-columns: auto minmax(0, 1fr);
   }

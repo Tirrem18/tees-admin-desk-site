@@ -579,11 +579,23 @@
   margin-top: 12px;
 }
 
+.service-preview-copy + .chase-queue {
+  margin-top: 12px;
+}
+
+.service-preview-copy + .monthly-overview {
+  margin-top: 12px;
+}
+
 .service-preview p.is-hidden {
   display: none;
 }
 
 .deadline-tracker {
+  --deadline-expiry-column: clamp(5.6rem, 17%, 7rem);
+  --deadline-days-column: clamp(5.1rem, 15%, 6.4rem);
+  --deadline-status-column: clamp(5.2rem, 16%, 6.2rem);
+
   display: grid;
   gap: 7px;
   min-height: 0;
@@ -592,9 +604,13 @@
 .deadline-tracker-head,
 .deadline-row {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto auto auto;
+  grid-template-columns:
+    minmax(0, 1fr)
+    var(--deadline-expiry-column)
+    var(--deadline-days-column)
+    var(--deadline-status-column);
   align-items: center;
-  gap: 9px;
+  gap: 10px;
 }
 
 .deadline-tracker-head {
@@ -647,6 +663,7 @@
 }
 
 .deadline-date {
+  justify-self: start;
   color: var(--navy);
   font-size: 0.76rem;
   font-weight: 800;
@@ -654,13 +671,195 @@
 }
 
 .deadline-days {
+  justify-self: start;
   color: var(--muted);
   font-size: 0.72rem;
   font-weight: 800;
   white-space: nowrap;
 }
 
+.deadline-days strong {
+  color: var(--navy-dark);
+  font-weight: 900;
+}
+
 .deadline-row .status-pill {
+  justify-self: start;
+  white-space: nowrap;
+}
+
+.chase-queue {
+  --chase-needed-column: clamp(6.4rem, 22%, 8rem);
+  --chase-last-column: clamp(5.4rem, 17%, 6.6rem);
+  --chase-action-column: clamp(7.5rem, 24%, 9.4rem);
+
+  display: grid;
+  gap: 7px;
+  min-height: 0;
+}
+
+.chase-queue-head,
+.chase-row {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    var(--chase-needed-column)
+    var(--chase-last-column)
+    var(--chase-action-column);
+  align-items: center;
+  gap: 10px;
+}
+
+.chase-queue-head {
+  padding: 0 10px;
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 850;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.chase-queue-list {
+  display: grid;
+  gap: 6px;
+  min-height: 0;
+  list-style: none;
+}
+
+.chase-row {
+  padding: 8px 10px;
+  border: 1px solid rgba(221, 230, 234, 0.9);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.chase-row span {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 0.74rem;
+  font-weight: 760;
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.chase-row .chase-item {
+  color: var(--navy-dark);
+  font-size: 0.82rem;
+  font-weight: 850;
+}
+
+.chase-row .chase-action {
+  color: var(--navy);
+  font-weight: 850;
+}
+
+.chase-row .chase-last {
+  justify-self: start;
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 850;
+}
+
+.chase-last-today {
+  border-color: rgba(16, 175, 171, 0.18);
+  background: var(--teal-soft);
+  color: var(--teal-dark);
+}
+
+.chase-last-yesterday {
+  border-color: rgba(16, 175, 171, 0.14);
+  background: rgba(232, 251, 250, 0.68);
+  color: #0b8f8b;
+}
+
+.chase-last-two-days {
+  border-color: rgba(16, 175, 171, 0.1);
+  background: rgba(232, 251, 250, 0.46);
+  color: #287d7a;
+}
+
+.chase-last-attention {
+  border-color: rgba(183, 102, 19, 0.28);
+  background: #ffe8cc;
+  color: #8f4a00;
+}
+
+.monthly-overview {
+  padding: 10px;
+  border: 1px solid rgba(221, 230, 234, 0.9);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.monthly-summary-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid #edf2f5;
+}
+
+.monthly-summary-item {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+  min-width: 0;
+  padding: 5px 8px;
+  border: 1px solid rgba(221, 230, 234, 0.8);
+  border-radius: 999px;
+  background: rgba(251, 253, 255, 0.72);
+  color: var(--muted);
+  font-size: 0.7rem;
+  font-weight: 760;
+  line-height: 1.2;
+}
+
+.monthly-summary-item strong {
+  color: var(--navy-dark);
+  font-size: 0.74rem;
+  font-weight: 850;
+}
+
+.monthly-overview-list {
+  display: grid;
+  gap: 2px;
+  list-style: none;
+}
+
+.monthly-overview-row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  min-height: 42px;
+  padding: 8px 6px;
+  border-bottom: 1px solid #edf2f5;
+}
+
+.monthly-overview-row:last-child {
+  border-bottom: 0;
+}
+
+.monthly-overview-label {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--navy-dark);
+  font-size: 0.86rem;
+  font-weight: 780;
+  line-height: 1.24;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.monthly-overview-row .status-pill {
   justify-self: end;
   white-space: nowrap;
 }

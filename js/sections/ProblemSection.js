@@ -19,7 +19,7 @@ const problems = [
     icon: "time",
     iconClass: "teal",
     title: "Lost working time",
-    text: "Simple checks, chasing paperwork and finding files take time away from actual jobs.",
+    text: "Constant checks, chasing paperwork and finding files take time away from actual jobs.",
     tag: "Time drain",
   },
   {

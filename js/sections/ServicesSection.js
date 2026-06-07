@@ -489,11 +489,6 @@ const services = [
         source: "04 Accreditations",
         daysRemaining: 140,
       },
-      {
-        title: "Quote follow-up",
-        source: "05 Quotes & Tenders",
-        daysRemaining: 180,
-      },
     ],
   },
   {
@@ -504,7 +499,33 @@ const services = [
     text: "I keep on top of missing documents, details, approvals and updates so everything stays complete and up to date.",
     panelLabel: "Step 3 preview",
     panelBody:
-      "Placeholder content for service 3. This area will later show missing documents, requested information and follow-up progress.",
+      "We keep a clear list of what is missing, who it is waiting on, and what has already been chased.",
+    chaseItems: [
+      {
+        missingItem: "Insurance certificate",
+        neededFrom: "Client / broker",
+        lastChased: "Today",
+        nextAction: "Send latest copy",
+      },
+      {
+        missingItem: "Training card photo",
+        neededFrom: "Site supervisor",
+        lastChased: "Yesterday",
+        nextAction: "Upload clear photo",
+      },
+      {
+        missingItem: "Signed RAMS copy",
+        neededFrom: "H&S consultant",
+        lastChased: "2 days ago",
+        nextAction: "Confirm reviewed version",
+      },
+      {
+        missingItem: "Waste carrier document",
+        neededFrom: "Client",
+        lastChased: "6 days ago",
+        nextAction: "Check if required",
+      },
+    ],
   },
   {
     number: "04",
@@ -514,14 +535,39 @@ const services = [
     text: "You get a simple monthly summary showing what is sorted, what is missing, what is expiring soon and what needs action.",
     panelLabel: "Step 4 preview",
     panelBody:
-      "Placeholder content for service 4. This area will later show a monthly summary of what is sorted, missing, expiring soon and needing action.",
+      "Each month, we review the tracker, add new files, check expiry dates, update missing items and make sure the paperwork stays current.",
+    monthlySummary: {
+      totalDocuments: 234,
+      deadlinesTracked: 34,
+    },
+    monthlyItems: [
+      {
+        label: "1 document expired",
+        statusClass: "action",
+        statusLabel: "Action needed",
+      },
+      {
+        label: "2 documents expiring soon",
+        statusClass: "expiring",
+        statusLabel: "Due soon",
+      },
+      {
+        label: "4 missing documents still needed",
+        statusClass: "missing",
+        statusLabel: "Missing",
+      },
+      {
+        label: "4 new documents sorted and tracked",
+        statusClass: "updated",
+        statusLabel: "Updated",
+      },
+    ],
   },
 ];
 
 const COMPARISON_MOBILE_QUERY = "(max-width: 720px)";
 const DESKTOP_COMPARISON_VISIBLE_COUNT = 6;
 const MOBILE_COMPARISON_VISIBLE_COUNT = 5;
-const MOBILE_DEADLINE_VISIBLE_COUNT = 4;
 
 function isMobileServiceViewport() {
   return (
@@ -537,10 +583,6 @@ function getComparisonVisibleCount() {
   }
 
   return DESKTOP_COMPARISON_VISIBLE_COUNT;
-}
-
-function getDeadlineVisibleCount(deadlineCount) {
-  return isMobileServiceViewport() ? MOBILE_DEADLINE_VISIBLE_COUNT : deadlineCount;
 }
 
 function renderServiceStep(service, index) {
@@ -719,7 +761,7 @@ function formatExpiryDate(daysRemaining) {
 
 function formatDaysRemaining(daysRemaining) {
   if (daysRemaining < 0) {
-    return `${Math.abs(daysRemaining)} days overdue`;
+    return "<strong>Overdue</strong>";
   }
 
   if (daysRemaining === 0) {
@@ -752,7 +794,6 @@ function getDeadlineStatus(daysRemaining) {
 
 function renderDeadlineTracker(deadlines) {
   const sortedDeadlines = [...deadlines].sort((first, second) => first.daysRemaining - second.daysRemaining);
-  const visibleDeadlines = sortedDeadlines.slice(0, getDeadlineVisibleCount(sortedDeadlines.length));
 
   return `
     <div class="deadline-tracker" aria-label="Deadline tracker example">
@@ -763,7 +804,7 @@ function renderDeadlineTracker(deadlines) {
         <span>Status</span>
       </div>
       <ul class="deadline-tracker-list">
-        ${visibleDeadlines
+        ${sortedDeadlines
           .map((deadline) => {
             const status = getDeadlineStatus(deadline.daysRemaining);
 
@@ -779,6 +820,94 @@ function renderDeadlineTracker(deadlines) {
               </li>
             `;
           })
+          .join("")}
+      </ul>
+    </div>
+  `;
+}
+
+function getChaseTone(lastChased) {
+  if (lastChased === "Today") {
+    return "today";
+  }
+
+  if (lastChased === "Yesterday") {
+    return "yesterday";
+  }
+
+  if (lastChased === "2 days ago") {
+    return "two-days";
+  }
+
+  if (lastChased === "6 days ago") {
+    return "attention";
+  }
+
+  return "neutral";
+}
+
+function renderChaseQueue(items) {
+  return `
+    <div class="chase-queue" aria-label="Missing information chase queue">
+      <div class="chase-queue-head">
+        <span>Missing item</span>
+        <span>Needed from</span>
+        <span>Last chased</span>
+        <span>Next action</span>
+      </div>
+      <ul class="chase-queue-list">
+        ${items
+          .map(
+            (item) => `
+              <li class="chase-row">
+                <span class="chase-item" data-label="Missing item">${item.missingItem}</span>
+                <span class="chase-needed" data-label="Needed from">${item.neededFrom}</span>
+                <span class="chase-last chase-last-${getChaseTone(item.lastChased)}" data-label="Last chased">${item.lastChased}</span>
+                <span class="chase-action" data-label="Next action">${item.nextAction}</span>
+              </li>
+            `
+          )
+          .join("")}
+      </ul>
+    </div>
+  `;
+}
+
+function formatCurrentMonth() {
+  return new Intl.DateTimeFormat("en-GB", {
+    month: "long",
+    year: "numeric",
+  }).format(new Date());
+}
+
+function renderMonthlyOverview(items, summary) {
+  return `
+    <div class="monthly-overview" aria-label="Monthly admin overview example">
+      <div class="monthly-summary-strip">
+        <span class="monthly-summary-item">
+          <span>Current month</span>
+          <strong>${formatCurrentMonth()}</strong>
+        </span>
+        <span class="monthly-summary-item">
+          <span>Total documents</span>
+          <strong>${summary.totalDocuments}</strong>
+        </span>
+        <span class="monthly-summary-item">
+          <span>Deadlines tracked</span>
+          <strong>${summary.deadlinesTracked}</strong>
+        </span>
+      </div>
+      <ul class="monthly-overview-list">
+        ${items
+          .map(
+            (item) => `
+              <li class="monthly-overview-row">
+                <span class="status-dot ${item.statusClass}"></span>
+                <span class="monthly-overview-label">${item.label}</span>
+                <span class="status-pill ${item.statusClass}">${item.statusLabel}</span>
+              </li>
+            `
+          )
           .join("")}
       </ul>
     </div>
@@ -805,6 +934,10 @@ function renderPreviewContent(service, expandedSide = null, openFolderKeys = [])
       `
       : "";
   const deadlineTracker = service.deadlines ? renderDeadlineTracker(service.deadlines) : "";
+  const chaseQueue = service.chaseItems ? renderChaseQueue(service.chaseItems) : "";
+  const monthlyOverview = service.monthlyItems
+    ? renderMonthlyOverview(service.monthlyItems, service.monthlySummary)
+    : "";
 
   return `
     ${
@@ -820,6 +953,8 @@ function renderPreviewContent(service, expandedSide = null, openFolderKeys = [])
     ${isExpanded ? "" : `<p class="service-preview-copy" data-service-preview-body>${service.panelBody}</p>`}
     ${comparison}
     ${deadlineTracker}
+    ${chaseQueue}
+    ${monthlyOverview}
   `;
 }
 
