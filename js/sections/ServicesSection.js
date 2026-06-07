@@ -56,7 +56,6 @@ const services = [
           { name: "health and safety policy old.docx" },
         ],
       },
-      { name: "New admin 2026/" },
       { name: "photos/" },
       {
         name: "Training certs and records/",

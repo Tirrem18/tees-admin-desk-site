@@ -3,21 +3,21 @@ import { ProcessStep } from "../components/ProcessStep.js";
 const steps = [
   {
     number: "1",
-    icon: "?",
-    title: "Tell us what is messy",
+    icon: "question",
+    title: "You send it",
     text: "Send the paperwork, spreadsheet or admin process that is causing the problem.",
   },
   {
     number: "2",
-    icon: "&#9633;",
-    title: "We organise it",
-    text: "We sort the files, build a tracker, highlight missing items and make the next actions clear.",
+    icon: "folder",
+    title: "I sort it",
+    text: "I organise the files, build a tracker, highlight what is missing and make the next actions clear.",
   },
   {
     number: "3",
-    icon: "&check;",
-    title: "You stay on top of it",
-    text: "Use us for one-off clean-up work or monthly admin upkeep so the mess does not come back.",
+    icon: "check",
+    title: "You stay updated",
+    text: "You get clear updates on what is sorted, what is missing and what needs attention next, with monthly upkeep available if needed.",
   },
 ];
 

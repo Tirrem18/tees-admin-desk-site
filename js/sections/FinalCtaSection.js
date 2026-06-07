@@ -9,7 +9,7 @@ export function FinalCtaSection() {
             <h2>Not sure what admin support you need yet?</h2>
             <p>
               That is fine. Send a quick message about what is wasting time, causing
-              stress or getting missed. We will tell you honestly whether Tees Admin Desk
+              stress or getting missed. I will tell you honestly whether Tees Admin Desk
               can help.
             </p>
 

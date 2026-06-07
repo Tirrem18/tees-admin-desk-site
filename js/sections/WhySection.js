@@ -2,24 +2,28 @@ import { BenefitItem } from "../components/BenefitItem.js";
 
 const benefits = [
   {
-    icon: "&check;",
+    icon: "check",
+    iconClass: "teal",
     title: "Done-for-you",
-    text: "We help organise, track and chase the admin &mdash; not just tell you what to do.",
+    text: "I help organise, track and chase the admin &mdash; not just tell you what to do.",
   },
   {
-    icon: "&#8982;",
+    icon: "location",
+    iconClass: "navy",
     title: "Local",
     text: "Based around Teesside and built for small North East businesses.",
   },
   {
-    icon: "&#9633;",
+    icon: "tracker",
+    iconClass: "blue",
     title: "Practical",
     text: "Shared folders, simple trackers, clear reports and plain-English updates.",
   },
   {
-    icon: "&#8801;",
+    icon: "spark",
+    iconClass: "amber",
     title: "Flexible",
-    text: "Start with a one-off clean-up, then add monthly support if it helps.",
+    text: "I adapt to what you need, whether it is a one-off clean-up or monthly support.",
   },
 ];
 

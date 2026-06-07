@@ -13,7 +13,7 @@ export function Header() {
         <nav class="site-nav" id="main-navigation" aria-label="Main navigation">
           <a href="#services">Services</a>
           <a href="#how-it-works">How it works</a>
-          <a href="#who-we-help">Who we help</a>
+          <a href="#who-i-help">Who I help</a>
           <a href="#about">About</a>
           <a href="contact.html">Contact</a>
           <a class="menu-cta" href="contact.html">Free admin review</a>
