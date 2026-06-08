@@ -565,8 +565,8 @@ const services = [
 ];
 
 const COMPARISON_MOBILE_QUERY = "(max-width: 720px)";
-const DESKTOP_COMPARISON_VISIBLE_COUNT = 6;
-const MOBILE_COMPARISON_VISIBLE_COUNT = 5;
+const DESKTOP_COMPARISON_VISIBLE_COUNT = 9;
+const MOBILE_COMPARISON_VISIBLE_COUNT = 8;
 
 function isMobileServiceViewport() {
   return (
@@ -886,15 +886,24 @@ function renderMonthlyOverview(items, summary) {
     <div class="monthly-overview" aria-label="Monthly admin overview example">
       <div class="monthly-summary-strip">
         <span class="monthly-summary-item">
-          <span>Current month</span>
+          <span class="monthly-summary-label">
+            <span class="monthly-summary-full">Current month</span>
+            <span class="monthly-summary-short">Month</span>
+          </span>
           <strong>${formatCurrentMonth()}</strong>
         </span>
         <span class="monthly-summary-item">
-          <span>Total documents</span>
+          <span class="monthly-summary-label">
+            <span class="monthly-summary-full">Total documents</span>
+            <span class="monthly-summary-short">Total docs</span>
+          </span>
           <strong>${summary.totalDocuments}</strong>
         </span>
         <span class="monthly-summary-item">
-          <span>Deadlines tracked</span>
+          <span class="monthly-summary-label">
+            <span class="monthly-summary-full">Deadlines tracked</span>
+            <span class="monthly-summary-short">Deadlines</span>
+          </span>
           <strong>${summary.deadlinesTracked}</strong>
         </span>
       </div>

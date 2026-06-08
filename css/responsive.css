@@ -603,9 +603,50 @@
   }
 
   .priority-row {
-    gap: 7px;
-    padding: 8px 0;
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 4px;
+    padding: 7px 0;
     font-size: 0.8rem;
+  }
+
+  .priority-row .status-dot {
+    display: none;
+  }
+
+  .priority-row > span:not(.status-dot):not(.status-pill),
+  .priority-row .row-expand-toggle {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .priority-row .status-pill {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+    width: fit-content;
+  }
+
+  .dashboard-body[data-active-report="overview"] .priority-row {
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    column-gap: 7px;
+    row-gap: 2px;
+  }
+
+  .dashboard-body[data-active-report="overview"] .priority-row > span:not(.status-dot):not(.status-pill) {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: start;
+    min-width: 0;
+    text-align: left;
+  }
+
+  .dashboard-body[data-active-report="overview"] .priority-row .status-pill {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+    white-space: nowrap;
   }
 
   .report-tabs {
@@ -915,13 +956,18 @@
     top: 8px;
     right: 9px;
     display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-flow: row;
     justify-items: end;
+    align-content: start;
     gap: 4px;
     width: 72px;
   }
 
   .deadline-days {
+    display: block;
     justify-self: end;
+    width: 100%;
     font-size: 0.66rem;
     text-align: right;
     white-space: normal;
@@ -932,6 +978,9 @@
   }
 
   .deadline-row .status-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     justify-self: end;
     max-width: 100%;
     padding: 3px 6px;
@@ -1010,6 +1059,14 @@
     font-size: 0.58rem;
   }
 
+  .monthly-summary-full {
+    display: none;
+  }
+
+  .monthly-summary-short {
+    display: inline;
+  }
+
   .monthly-summary-item strong {
     font-size: 0.62rem;
   }
@@ -1033,6 +1090,7 @@
   }
 
   .monthly-overview-row .status-pill {
+    grid-column: 1;
     grid-row: 1;
     justify-self: start;
     align-self: center;
@@ -1349,11 +1407,14 @@
   }
 
   .priority-row {
-    grid-template-columns: auto 1fr;
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-body[data-active-report="overview"] .priority-row {
+    grid-template-columns: auto minmax(0, 1fr);
   }
 
   .status-pill {
-    grid-column: 2;
     width: fit-content;
   }
 }
