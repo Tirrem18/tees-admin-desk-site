@@ -670,6 +670,10 @@
   white-space: nowrap;
 }
 
+.deadline-meta {
+  display: contents;
+}
+
 .deadline-days {
   justify-self: start;
   color: var(--muted);

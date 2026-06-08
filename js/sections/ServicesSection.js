@@ -814,8 +814,10 @@ function renderDeadlineTracker(deadlines) {
                   <span>${deadline.source}</span>
                 </span>
                 <span class="deadline-date">${formatExpiryDate(deadline.daysRemaining)}</span>
-                <span class="deadline-days">${formatDaysRemaining(deadline.daysRemaining)}</span>
-                <span class="status-pill ${status.statusClass}">${status.statusLabel}</span>
+                <span class="deadline-meta">
+                  <span class="deadline-days">${formatDaysRemaining(deadline.daysRemaining)}</span>
+                  <span class="status-pill ${status.statusClass}">${status.statusLabel}</span>
+                </span>
               </li>
             `;
           })

@@ -31,13 +31,40 @@ export function WhoWeHelpSection() {
             </p>
           </div>
 
-          <div class="who-list-wrap">
-            <div class="who-list">
+          <div class="who-list-wrap" data-who-chip-state="collapsed">
+            <div class="who-list" id="who-chip-list">
               ${renderChips(bestFit)}
             </div>
+            <button
+              class="who-more-toggle"
+              type="button"
+              data-who-more-toggle
+              aria-expanded="false"
+              aria-controls="who-chip-list"
+            >
+              + more
+            </button>
           </div>
         </div>
       </div>
     </section>
   `;
+}
+
+export function initWhoWeHelpSection() {
+  const wrapper = document.querySelector("[data-who-chip-state]");
+  const toggle = wrapper?.querySelector("[data-who-more-toggle]");
+
+  if (!wrapper || !toggle) {
+    return;
+  }
+
+  toggle.addEventListener("click", () => {
+    const isExpanded = wrapper.dataset.whoChipState === "expanded";
+    const nextState = isExpanded ? "collapsed" : "expanded";
+
+    wrapper.dataset.whoChipState = nextState;
+    toggle.setAttribute("aria-expanded", String(!isExpanded));
+    toggle.textContent = isExpanded ? "+ more" : "Show less";
+  });
 }

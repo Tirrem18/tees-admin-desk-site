@@ -629,6 +629,122 @@
     grid-template-columns: 1fr;
   }
 
+  .why-grid {
+    gap: 10px;
+  }
+
+  .why-item {
+    min-height: auto;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: start;
+    column-gap: 12px;
+    row-gap: 0;
+    padding: 14px;
+    border-radius: 16px;
+  }
+
+  .why-icon {
+    grid-row: span 2;
+    width: 44px;
+    height: 44px;
+    margin-bottom: 0;
+    border-radius: 14px;
+  }
+
+  .why-icon svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  .why-item h3 {
+    min-width: 0;
+    font-size: 0.96rem;
+    line-height: 1.2;
+  }
+
+  .why-item p {
+    min-width: 0;
+    margin-top: 4px;
+    font-size: 0.84rem;
+    line-height: 1.42;
+  }
+
+  .process-grid {
+    gap: 10px;
+  }
+
+  .process-step {
+    min-height: auto;
+    padding: 16px 58px 16px 16px;
+    border-radius: 16px;
+  }
+
+  .step-number {
+    top: 14px;
+    right: 14px;
+    width: 28px;
+    height: 28px;
+    font-size: 0.82rem;
+  }
+
+  .step-icon {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 10px;
+    border-radius: 14px;
+  }
+
+  .step-icon svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  .process-step h3 {
+    font-size: 0.98rem;
+  }
+
+  .process-step p {
+    margin-top: 6px;
+    font-size: 0.84rem;
+    line-height: 1.42;
+  }
+
+  .who-list {
+    gap: 8px;
+  }
+
+  .who-list span {
+    padding: 8px 10px;
+    font-size: 0.8rem;
+  }
+
+  .who-list-wrap[data-who-chip-state="collapsed"] .who-list span:nth-child(n + 4) {
+    display: none;
+  }
+
+  .who-more-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    min-height: 34px;
+    padding: 0 12px;
+    border: 1px solid rgba(16, 175, 171, 0.14);
+    border-radius: 999px;
+    background: var(--teal-soft);
+    color: var(--teal-dark);
+    font: inherit;
+    font-size: 0.8rem;
+    font-weight: 850;
+    cursor: pointer;
+  }
+
+  .who-more-toggle:focus-visible {
+    outline: 2px solid rgba(16, 175, 171, 0.35);
+    outline-offset: 2px;
+  }
+
   .services-section {
     padding: 6px 0 38px;
   }
@@ -764,10 +880,10 @@
   }
 
   .deadline-row {
-    grid-template-columns: auto auto;
-    justify-content: start;
-    gap: 3px 6px;
-    padding: 8px 9px;
+    position: relative;
+    display: block;
+    min-height: 74px;
+    padding: 8px 86px 8px 9px;
   }
 
   .deadline-tracker-list .deadline-row:nth-child(n + 4) {
@@ -775,7 +891,6 @@
   }
 
   .deadline-item {
-    grid-column: 1 / -1;
     gap: 1px;
   }
 
@@ -790,26 +905,40 @@
   }
 
   .deadline-date {
-    grid-column: 1 / -1;
+    display: block;
+    margin-top: 4px;
     font-size: 0.66rem;
+  }
+
+  .deadline-meta {
+    position: absolute;
+    top: 8px;
+    right: 9px;
+    display: grid;
+    justify-items: end;
+    gap: 4px;
+    width: 72px;
   }
 
   .deadline-days {
-    grid-column: 1;
+    justify-self: end;
     font-size: 0.66rem;
+    text-align: right;
+    white-space: normal;
   }
 
   .deadline-days::after {
-    content: " \00b7";
-    color: var(--muted);
-    font-weight: 850;
+    content: "";
   }
 
   .deadline-row .status-pill {
-    grid-column: 2;
-    justify-self: start;
+    justify-self: end;
+    max-width: 100%;
     padding: 3px 6px;
     font-size: 0.58rem;
+    line-height: 1.1;
+    text-align: center;
+    white-space: normal;
   }
 
   .chase-queue {
@@ -1022,7 +1151,7 @@
 
   .process-step {
     min-height: auto;
-    padding: 22px 20px;
+    padding: 16px 58px 16px 16px;
   }
 
   .who-card,

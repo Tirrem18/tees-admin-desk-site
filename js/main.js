@@ -6,7 +6,7 @@ import { ProblemSection } from "./sections/ProblemSection.js";
 import { ServicesSection, initServicesSection } from "./sections/ServicesSection.js";
 import { WhySection } from "./sections/WhySection.js";
 import { ProcessSection } from "./sections/ProcessSection.js";
-import { WhoWeHelpSection } from "./sections/WhoWeHelpSection.js";
+import { WhoWeHelpSection, initWhoWeHelpSection } from "./sections/WhoWeHelpSection.js";
 import { FinalCtaSection } from "./sections/FinalCtaSection.js";
 
 const headerMount = document.querySelector("#site-header");
@@ -29,3 +29,4 @@ initHeaderMenu();
 initHeroExampleToggle();
 initServicesSection();
 initDashboardCard();
+initWhoWeHelpSection();

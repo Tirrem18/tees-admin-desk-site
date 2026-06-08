@@ -52,6 +52,10 @@
   font-size: 0.86rem;
 }
 
+.who-more-toggle {
+  display: none;
+}
+
 .who-list-wrap p {
   max-width: 620px;
   color: var(--muted);
