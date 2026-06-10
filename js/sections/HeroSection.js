@@ -50,7 +50,7 @@ export function HeroSection() {
               aria-expanded="false"
               aria-controls="hero-example-content"
             >
-              View example
+              View sample report
             </button>
 
             <div class="hero-example-content" id="hero-example-content" hidden aria-hidden="true">
