@@ -1019,6 +1019,36 @@
   opacity: 0.78;
 }
 
+.comparison-list-toggle-row {
+  min-width: 0;
+}
+
+.comparison-card.is-list-expanded > ul {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+@media (min-width: 1041px) {
+  .comparison-card:not(.is-list-expanded) .comparison-list-extra-desktop {
+    display: none;
+  }
+
+  .comparison-list-toggle-row-mobile {
+    display: none;
+  }
+}
+
+@media (max-width: 1040px) {
+  .comparison-card:not(.is-list-expanded) .comparison-list-extra-mobile {
+    display: none;
+  }
+
+  .comparison-list-toggle-row-desktop {
+    display: none;
+  }
+}
+
 .folder-row {
   cursor: pointer;
 }

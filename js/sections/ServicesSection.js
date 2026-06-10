@@ -564,25 +564,8 @@ const services = [
   },
 ];
 
-const COMPARISON_MOBILE_QUERY = "(max-width: 720px)";
-const DESKTOP_COMPARISON_VISIBLE_COUNT = 9;
-const MOBILE_COMPARISON_VISIBLE_COUNT = 8;
-
-function isMobileServiceViewport() {
-  return (
-    typeof window !== "undefined" &&
-    typeof window.matchMedia === "function" &&
-    window.matchMedia(COMPARISON_MOBILE_QUERY).matches
-  );
-}
-
-function getComparisonVisibleCount() {
-  if (isMobileServiceViewport()) {
-    return MOBILE_COMPARISON_VISIBLE_COUNT;
-  }
-
-  return DESKTOP_COMPARISON_VISIBLE_COUNT;
-}
+const DESKTOP_PREVIEW_ITEM_LIMIT = 6;
+const MOBILE_PREVIEW_ITEM_LIMIT = 7;
 
 function renderServiceStep(service, index) {
   const isActive = index === 0;
@@ -638,11 +621,22 @@ function renderMobileServiceNavigatorContent(index) {
   `;
 }
 
-function renderMoreRow(count, side) {
+function renderMoreRow(count, side, isListExpanded, viewport) {
+  const label = isListExpanded ? "Show less" : `+ ${count} more`;
+  const ariaLabel = isListExpanded
+    ? `Show fewer ${side} preview items`
+    : `Show ${count} more ${side} preview items`;
+
   return `
-    <li>
-      <button class="comparison-row more-row" type="button" data-comparison-more="${side}">
-        + ${count} more
+    <li class="comparison-list-toggle-row comparison-list-toggle-row-${viewport}">
+      <button
+        class="comparison-row more-row comparison-list-toggle"
+        type="button"
+        data-comparison-more="${side}"
+        aria-expanded="${isListExpanded}"
+        aria-label="${ariaLabel}"
+      >
+        ${label}
       </button>
     </li>
   `;
@@ -652,7 +646,16 @@ function getItemKey(side, item, index, parentKey = "") {
   return `${side}-${parentKey}${index}-${item.name}`;
 }
 
-function renderComparisonItem(item, side, index, isExpanded, openFolderKeys, depth = 0, parentKey = "") {
+function renderComparisonItem(
+  item,
+  side,
+  index,
+  isExpanded,
+  openFolderKeys,
+  depth = 0,
+  parentKey = "",
+  extraClasses = ""
+) {
   const hasChildren = Boolean(item.children?.length);
   const isFolder = item.type === "folder" || hasChildren || item.name.endsWith("/");
   const itemKey = getItemKey(side, item, index, parentKey);
@@ -688,21 +691,43 @@ function renderComparisonItem(item, side, index, isExpanded, openFolderKeys, dep
       `
       : "";
 
-  return `<li>${row}${children}</li>`;
+  return `<li${extraClasses ? ` class="${extraClasses}"` : ""}>${row}${children}</li>`;
 }
 
-function renderComparisonList(items, side, isExpanded, openFolderKeys) {
-  const visibleItems = isExpanded ? items : items.slice(0, getComparisonVisibleCount());
-  const hiddenCount = items.length - visibleItems.length;
-  const itemRows = visibleItems
-    .map((item, index) => renderComparisonItem(item, side, index, isExpanded, openFolderKeys))
+function renderComparisonList(items, side, isExpanded, openFolderKeys, expandedPreviewLists) {
+  const desktopHiddenCount = Math.max(0, items.length - DESKTOP_PREVIEW_ITEM_LIMIT);
+  const mobileHiddenCount = Math.max(0, items.length - MOBILE_PREVIEW_ITEM_LIMIT);
+  const isListExpanded = expandedPreviewLists.has(side);
+  const itemRows = items
+    .map((item, index) => {
+      const extraClasses = [
+        !isExpanded && index >= DESKTOP_PREVIEW_ITEM_LIMIT ? "comparison-list-extra-desktop" : "",
+        !isExpanded && index >= MOBILE_PREVIEW_ITEM_LIMIT ? "comparison-list-extra-mobile" : "",
+      ]
+        .filter(Boolean)
+        .join(" ");
+
+      return renderComparisonItem(
+        item,
+        side,
+        index,
+        isExpanded,
+        openFolderKeys,
+        0,
+        "",
+        extraClasses
+      );
+    })
     .join("");
 
-  return `${itemRows}${!isExpanded && hiddenCount > 0 ? renderMoreRow(hiddenCount, side) : ""}`;
+  return `${itemRows}${
+    !isExpanded && desktopHiddenCount > 0 ? renderMoreRow(desktopHiddenCount, side, isListExpanded, "desktop") : ""
+  }${!isExpanded && mobileHiddenCount > 0 ? renderMoreRow(mobileHiddenCount, side, isListExpanded, "mobile") : ""}`;
 }
 
-function renderComparisonCard(label, side, items, expandedSide, openFolderKeys) {
+function renderComparisonCard(label, side, items, expandedSide, openFolderKeys, expandedPreviewLists) {
   const isExpanded = expandedSide === side;
+  const isListExpanded = !isExpanded && expandedPreviewLists.has(side);
   const buttonLabel = `${isExpanded ? "Minimise" : "Expand"} ${side} example`;
   const icon = isExpanded
     ? `
@@ -723,7 +748,9 @@ function renderComparisonCard(label, side, items, expandedSide, openFolderKeys) 
     `;
 
   return `
-    <div class="comparison-card ${side}${isExpanded ? " is-expanded" : ""}">
+    <div class="comparison-card ${side}${isExpanded ? " is-expanded" : ""}${
+      isListExpanded ? " is-list-expanded" : ""
+    }">
       <div class="comparison-card-header">
         <span>${label}</span>
         <button
@@ -736,7 +763,13 @@ function renderComparisonCard(label, side, items, expandedSide, openFolderKeys) 
           ${icon}
         </button>
       </div>
-      <ul data-comparison-list="${side}">${renderComparisonList(items, side, isExpanded, openFolderKeys)}</ul>
+      <ul data-comparison-list="${side}">${renderComparisonList(
+        items,
+        side,
+        isExpanded,
+        openFolderKeys,
+        expandedPreviewLists
+      )}</ul>
     </div>
   `;
 }
@@ -924,7 +957,7 @@ function renderMonthlyOverview(items, summary) {
   `;
 }
 
-function renderPreviewContent(service, expandedSide = null, openFolderKeys = []) {
+function renderPreviewContent(service, expandedSide = null, openFolderKeys = [], expandedPreviewLists = new Set()) {
   const isExpanded = Boolean(expandedSide);
   const comparison =
     service.before && service.after
@@ -933,12 +966,12 @@ function renderPreviewContent(service, expandedSide = null, openFolderKeys = [])
           ${
             expandedSide === "after"
               ? ""
-              : renderComparisonCard("Before", "before", service.before, expandedSide, openFolderKeys)
+              : renderComparisonCard("Before", "before", service.before, expandedSide, openFolderKeys, expandedPreviewLists)
           }
           ${
             expandedSide === "before"
               ? ""
-              : renderComparisonCard("After", "after", service.after, expandedSide, openFolderKeys)
+              : renderComparisonCard("After", "after", service.after, expandedSide, openFolderKeys, expandedPreviewLists)
           }
         </div>
       `
@@ -1023,13 +1056,10 @@ export function initServicesSection() {
   let activeServiceIndex = 0;
   let expandedComparisonSide = null;
   let openFolderKeys = [];
-  const comparisonMediaQuery =
-    typeof window !== "undefined" && typeof window.matchMedia === "function"
-      ? window.matchMedia(COMPARISON_MOBILE_QUERY)
-      : null;
+  let expandedPreviewLists = new Set();
 
   function renderPreview(service, scrollState = null) {
-    preview.innerHTML = renderPreviewContent(service, expandedComparisonSide, openFolderKeys);
+    preview.innerHTML = renderPreviewContent(service, expandedComparisonSide, openFolderKeys, expandedPreviewLists);
 
     if (!scrollState) {
       return;
@@ -1049,14 +1079,11 @@ export function initServicesSection() {
     }
   }
 
-  comparisonMediaQuery?.addEventListener("change", () => {
-    renderPreview(services[activeServiceIndex] || services[0]);
-  });
-
   function setActiveService(index) {
     activeServiceIndex = Math.max(0, Math.min(index, services.length - 1));
     expandedComparisonSide = null;
     openFolderKeys = [];
+    expandedPreviewLists = new Set();
 
     const service = services[activeServiceIndex] || services[0];
 
@@ -1117,6 +1144,7 @@ export function initServicesSection() {
           ? openFolderKeys.filter((key) => key !== folderKey && !key.startsWith(`${folderKey}-`))
           : [...openFolderKeys, folderKey]
         : [folderKey];
+      expandedPreviewLists = new Set();
       renderPreview(service, scrollState);
       return;
     }
@@ -1125,8 +1153,12 @@ export function initServicesSection() {
       const side = more.dataset.comparisonMore;
       const service = services[activeServiceIndex] || services[0];
 
-      expandedComparisonSide = side;
-      openFolderKeys = [];
+      if (expandedPreviewLists.has(side)) {
+        expandedPreviewLists.delete(side);
+      } else {
+        expandedPreviewLists.add(side);
+      }
+
       renderPreview(service);
       return;
     }
@@ -1140,6 +1172,7 @@ export function initServicesSection() {
 
     expandedComparisonSide = expandedComparisonSide === side ? null : side;
     openFolderKeys = [];
+    expandedPreviewLists = new Set();
     renderPreview(service);
   });
 }
