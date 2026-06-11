@@ -14,7 +14,7 @@ export function FinalCtaSection() {
             </p>
 
             ${Button({
-              href: "contact.html",
+              href: "free-admin-review.html",
               text: "Ask for a free admin review",
               variant: "btn-primary",
             })}

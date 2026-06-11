@@ -1,4 +1,21 @@
-export function Header() {
+const navLinks = [
+  { href: "services.html", label: "Services", page: "services" },
+  { href: "examples.html", label: "Examples", page: "examples" },
+  { href: "about.html", label: "About me", page: "about" },
+];
+
+function renderNavLink({ href, label, page }, currentPage) {
+  const isCurrent = currentPage === page;
+  const currentAttrs = isCurrent ? ' class="is-current" aria-current="page"' : "";
+
+  return `<a href="${href}"${currentAttrs}>${label}</a>`;
+}
+
+export function Header({ currentPage = "" } = {}) {
+  const reviewIsCurrent = currentPage === "free-admin-review";
+  const reviewClass = reviewIsCurrent ? " is-current" : "";
+  const reviewAria = reviewIsCurrent ? ' aria-current="page"' : "";
+
   return `
     <header class="site-header">
       <div class="container header-inner">
@@ -11,15 +28,11 @@ export function Header() {
         </a>
 
         <nav class="site-nav" id="main-navigation" aria-label="Main navigation">
-          <a href="#services">Services</a>
-          <a href="#how-it-works">How it works</a>
-          <a href="#who-i-help">Who I help</a>
-          <a href="#about">About</a>
-          <a href="contact.html">Contact</a>
-          <a class="menu-cta" href="contact.html">Free admin review</a>
+          ${navLinks.map((link) => renderNavLink(link, currentPage)).join("")}
+          <a class="menu-cta${reviewClass}" href="free-admin-review.html"${reviewAria}>Free admin review</a>
         </nav>
 
-        <a class="header-cta" href="contact.html">Free admin review</a>
+        <a class="header-cta${reviewClass}" href="free-admin-review.html"${reviewAria}>Free admin review</a>
 
         <button
           class="nav-toggle"

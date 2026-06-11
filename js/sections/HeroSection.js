@@ -32,7 +32,7 @@ export function HeroSection() {
 
           <div class="hero-actions">
             ${Button({
-              href: "contact.html",
+              href: "free-admin-review.html",
               text: "Request a free admin review",
               variant: "btn-primary",
             })}

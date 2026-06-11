@@ -13,7 +13,7 @@ const headerMount = document.querySelector("#site-header");
 const app = document.querySelector("#app");
 const footerMount = document.querySelector("#site-footer");
 
-headerMount.outerHTML = Header();
+headerMount.outerHTML = Header({ currentPage: "home" });
 app.innerHTML = [
   HeroSection(),
   ProblemSection(),

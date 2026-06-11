@@ -71,8 +71,13 @@
   transition: width 0.2s ease;
 }
 
-.site-nav a:hover::after {
+.site-nav a:hover::after,
+.site-nav a.is-current::after {
   width: 100%;
+}
+
+.site-nav a.is-current {
+  color: var(--teal-dark);
 }
 
 .menu-cta,
